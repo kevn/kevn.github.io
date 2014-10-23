@@ -11,7 +11,7 @@ author:
 author_login: Kevin
 author_email: kevin@kev.in
 author_url: http://kev.in
-excerpt: ! "<img class=\"alignright\" src=\"/wp-content/uploads/address.jpg\" title=\"Some
+excerpt: ! "<img class=\"alignright\" src=\"{{ site.image_path }}/address.jpg\" title=\"Some
   house address\" alt=\"Some house address\" height=\"88\" width=\"160\" />\r\n<p>Web
   applications can receive requests directly, via a CGI process, through proxy servers,
   relayed from front-end web servers, and so on. This can complicate how you might
@@ -160,7 +160,7 @@ comments:
     There are so many options out there \r\nthat I'm totally overwhelmed .. Any ideas?
     \r\nThank you!"
 ---
-<p><img class="alignright" src="/wp-content/uploads/address.jpg" title="Some house address" alt="Some house address" height="88" width="160" /></p>
+<p><img class="alignright" src="{{ site.image_path }}/address.jpg" title="Some house address" alt="Some house address" height="88" width="160" /></p>
 <p>Web applications can receive requests directly, via a CGI process, through proxy servers, relayed from front-end web servers, and so on. This can complicate how you might find out where the request originated if you, for example, wanted to limit an online poll to one vote per IP address. Luckily, Rails consolidates most of the ways to get this info into a single convenience method on the <code>request</code> object for us.</p>
 <p><a id="more"></a><a id="more-113"></a></p>
 <h3>The Convenience Method: <code>#remote_ip</code></h3>

@@ -12,7 +12,7 @@ author:
 author_login: Kevin
 author_email: kevin@kev.in
 author_url: http://kev.in
-excerpt: ! "<img class=\"alignright\" src=\"http://kev.in/wp-content/uploads/274334_6040.jpg\"
+excerpt: ! "<img class=\"alignright\" src=\"{{ site.image_path }}/274334_6040.jpg\"
   title=\"Car crash\" alt=\"Car crash\" height=\"107\" width=\"160\" />What a mess.
   You have undoubtedly run across these methods sprinkled throughout the Ruby and
   Rails world. If you've been working with Rails for even a short time, you've probably
@@ -135,7 +135,7 @@ comments:
     MjAxMS0xMC0yOSAwNDoxNzoxMCAtMDcwMA==
   content: thanks for the post was very useful !
 ---
-<p><img class="alignright" src="http://kev.in/wp-content/uploads/274334_6040.jpg" title="Car crash" alt="Car crash" height="107" width="160" />What a mess. You have undoubtedly run across these methods sprinkled throughout the Ruby and Rails world. If you've been working with Rails for even a short time, you've probably read a little about security and <code>attr_accessible</code>. But do you really understand what each of them do and when to use them?<br />
+<p><img class="alignright" src="{{ site.image_path }}/274334_6040.jpg" title="Car crash" alt="Car crash" height="107" width="160" />What a mess. You have undoubtedly run across these methods sprinkled throughout the Ruby and Rails world. If you've been working with Rails for even a short time, you've probably read a little about security and <code>attr_accessible</code>. But do you really understand what each of them do and when to use them?<br />
 I'm not a fan of whoever made these methods so closely named, especially because they serve very different purposes: two are specific to Rails (or more accurately, ActiveRecord), while the other three are Ruby core methods. When I have a need for any of them, I still have to really think about which one I actually want to use. Often I still have to glance at the rdocs to be reassured my choice is the right one. So let's dive in and figure out what the heck these are supposed to do, and when to use them.</p>
 <p><a id="more"></a><a id="more-114"></a></p>
 <h3>Forget Rails, Let's Talk Ruby Attributes</h3>

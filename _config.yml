@@ -5,6 +5,7 @@ tagline: "It was a musical thing and you were supposed to sing."
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://kev.in" # the base hostname & protocol for your site
 baseurl: /
+image_path: /public/images
 twitter_username: kev_in
 github_username:  kevn
 

@@ -26,7 +26,7 @@ comments: []
 <p>At the risk of being called a keyword Nazi and having to endure accusations that I care just a little too much about this stuff: Microsoft just managed surpass <a href="http://kev.in/2007/08/21/yahoo-marketing-vs-google-adwords-round-1/">my experience with Yahoo</a>.</p>
 <p>As I mentioned, I've been advertising my <em>online community classifieds site</em>, <a href="http://dibs.net">Dibs.net</a>, on Google for almost a month. Last night I decided to try out Microsoft's advertising network for my <em>community classifieds site</em>. I copied some of my better performing ads from my <em>Classifieds Ad Group</em> on Google into my <em>Classifieds Ad Group</em> on Microsoft.</p>
 <p>Here's representative ad from the bunch:<br />
-<img style="border:thick grey solid;" src='http://kev.in/wp-content/uploads/2007/08/picture-19.png' alt='Ad on Microsoft' /></p>
+<img style="border:thick grey solid;" src='{{ site.image_path }}/picture-19.png' alt='Ad on Microsoft' /></p>
 <div style="clear:both;"></div>
 <p>I was in business fairly quickly -- or so I thought. Microsoft has a similar "editorial guidelines" process to Yahoo's. But at Microsoft, the process must go something like this:</p>
 <ol>

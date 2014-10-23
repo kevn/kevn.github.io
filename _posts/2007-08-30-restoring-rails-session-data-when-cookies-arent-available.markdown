@@ -11,7 +11,7 @@ author:
 author_login: Kevin
 author_email: kevin@kev.in
 author_url: http://kev.in
-excerpt: ! "<img class=\"alignright\" src=\"http://kev.in/wp-content/uploads/cookie.jpg\"
+excerpt: ! "<img class=\"alignright\" src=\"{{ site.image_path }}\"
   title=\"C is for Cookie\" alt=\"C is for Cookie\" height=\"125\" width=\"180\" />\r\nIf
   you've ever needed to implement user-friendly upload, you know intimately what a
   pain it is to get right. The web just isn't built for uploading files from a browser.
@@ -102,7 +102,7 @@ comments:
   content: ! "Do you have any idea about how retrieve the session if I'm using mem_cached_store?\r\nBecause
     the DEFAULT_SESSION_OPTIONS[: database_manager] is aways nil for me."
 ---
-<p><img class="alignright" src="http://kev.in/wp-content/uploads/cookie.jpg" title="C is for Cookie" alt="C is for Cookie" height="125" width="180" /><br />
+<p><img class="alignright" src="{{ site.image_path }}/cookie.jpg" title="C is for Cookie" alt="C is for Cookie" height="125" width="180" /><br />
 If you've ever needed to implement user-friendly upload, you know intimately what a pain it is to get right. The web just isn't built for uploading files from a browser. I mean, it kinda works, but even then only with a dozen or so limitations. Even the major photo and video sites have tried various solutions to make this easier for users. So when I built <a href="http://dibs.net">Dibs.net</a>, I decided rather quickly to abandon all hope of getting it working flawlessly with plain ol' Javascript and HTML, and instead looked into using a fairly nonintrusive Flash uploader component. (Without Flash installed, it just falls back to a simple HTML-based file-upload form.)</p>
 <p>That's not to say it was perfectly simple to get working with Rails. Because Dibs.net accepts uploads only from logged-in users, I ran into two limitations that would not allow me to use this solution:</p>
 <ul>
