@@ -4,11 +4,19 @@ email: kevin@kev.in
 tagline: "It was a musical thing and you were supposed to sing."
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://kev.in" # the base hostname & protocol for your site
+baseurl: /
 twitter_username: kev_in
 github_username:  kevn
 
+author:
+  name:     Kevin Hunt
+  url:      http://github.com/kevn
+
+paginate: 10
+
 # Build settings
 markdown: kramdown
+highlighter: pygments
 excerpt_separator: ""
 permalink: /:year/:month/:day/:title.html
 exclude:

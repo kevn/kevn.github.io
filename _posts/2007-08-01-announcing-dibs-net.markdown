@@ -40,7 +40,7 @@ comments:
 <p>Why did I build dibs.net? As the saying goes, "to scratch my own itch." There are other ways to advertise and sell online, but none came close to what people need. For example, eBay items need to be shipped; they charge high fees; plus everything takes a week to sell. Craigslist, on the other hand, works well for getting the word out, but the barrage of email is a nightmare if you have more than a couple things for sale; I could never keep track of who wanted what, when they offered, how much, or when they were coming over.</p>
 <p>Enter dibs.net! I built in features for:</p>
 <ul>
-<li>answering questions from interested buyers, and adding your answer right to your listing, so you donâ€™t have to keep answering the same darn questions over and over</li>
+<li>answering questions from interested buyers, and adding your answer right to your listing, so you don't have to keep answering the same darn questions over and over</li>
 <li>managing many offers at a time, including accepting and rejecting</li>
 <li>really great-looking listings, with no limit on photos</li>
 <li>personal account URLs, so your stuff is listed exclusively at <strong>yourname.dibs.net</strong></li>
