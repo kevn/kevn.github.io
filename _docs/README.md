@@ -3,4 +3,5 @@
 ----
 ## Generating the site
 
-1. bundle exec jekyll serve --watch
+1. bundle exec jekyll build --safe --watch
+
