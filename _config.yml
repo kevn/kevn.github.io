@@ -16,7 +16,6 @@ paginate: 10
 
 # Build settings
 markdown: kramdown
-highlighter: pygments
 excerpt_separator: ""
 permalink: /:year/:month/:day/:title.html
 exclude:
