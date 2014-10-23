@@ -108,29 +108,6 @@ comments:
     MjAxMS0wOS0yMyAxOTowMzoyMSAtMDcwMA==
   content: Hi I want to track the IP of user but am getting the IP address to my servers
     gateway..
-- id: 48800
-  author: How to integrate Paypal with Rails | Atomic Spin
-  author_email: ''
-  author_url: http://spin.atomicobject.com/2011/10/24/integrating-paypal-express-with-rails-3-1-part-1/
-  date: !binary |-
-    MjAxMS0xMC0yNCAwODozMjoxMCAtMDcwMA==
-  date_gmt: !binary |-
-    MjAxMS0xMC0yNCAxNjozMjoxMCAtMDcwMA==
-  content: ! '[...] =&gt; home_url, view raw gistfile1.rb This Gist brought to you
-    by GitHub.Read more about remote_ip here&#8216;review&#8217; is another action
-    of PaypalExpressController. We will cover it in the next blog [...]'
-- id: 225479
-  author: nail art gel
-  author_email: odettehuntingfield@gmail.com
-  author_url: https://www.youtube.com/watch?v=nWTv_GRU8sQ
-  date: !binary |-
-    MjAxNC0wOS0xMyAxNDo1NTo0NiAtMDcwMA==
-  date_gmt: !binary |-
-    MjAxNC0wOS0xMyAyMjo1NTo0NiAtMDcwMA==
-  content: ! "That is a great tip especially to those new to the blogosphere.\r\nSimple
-    but very accurate information" Thank you for \r\nsharing this one. A must read
-    post!\r\n\r\nFor an incredible review please checkout \r\nthis page ... <a href=\"https://www.youtube.com/watch?v=nWTv_GRU8sQ\"
-    rel=\"nofollow\">nail art gel</a>"
 - id: 225787
   author: soccer
   author_email: jensalaniz@freenet.de
@@ -184,4 +161,4 @@ Your IP address is <%= @client_ip >
 <h3>Further Reading</h3>
 <p>The <code>request.remote_ip</code> method is documented in the <a href="http://api.rubyonrails.org/classes/ActionController/AbstractRequest.html#M000235">Rails Framework rdocs</a>.</p>
 <h3>Feedback and Article Ideas</h3>
-<p>Want to see a topic explored here? <a href="/contact">Send Me a Message</a>.</p>
+<p>Want to see a topic explored here? <a href="https://twitter.com/{{ site.twitter_username }}">Send Me a Message</a>.</p>

@@ -340,4 +340,4 @@ irb(main):004:0> puts address.zip
 <h3>Further Reading</h3>
 <p>The <code>attr_accessor</code>, <code>attr_reader</code>, and <code>attr_writer</code> methods are fairly well documented in the <a href="http://corelib.rubyonrails.org/classes/Module.html#M000794">Ruby core rdocs</a>.</p>
 <h3>Feedback and Article Ideas</h3>
-<p>Want to see a topic explored here? <a href="/contact">Send Me a Message</a>.</p>
+<p>Want to see a topic explored here? <a href="https://twitter.com/{{ site.twitter_username }}">Send Me a Message</a>.</p>

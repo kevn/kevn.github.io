@@ -153,4 +153,4 @@ end
 <h3><strong>Update:</strong> A Word of Caution</h3>
 <p>I forgot to mention when I published this earlier that there's a reason parameterized sessions is discouraged: browsers will send the entire current link, including the session id, in referer headers to offsite hosts. This doesn't affect Dibs.net's Flash upload, but in other scenarios use the above with caution, or with SSL.</p>
 <h3>Feedback and Article Ideas</h3>
-<p>Want to see a topic explored here? <a href="/contact">Send Me a Message</a>.</p>
+<p>Want to see a topic explored here? <a href="https://twitter.com/{{ site.twitter_username }}">Send Me a Message</a>.</p>

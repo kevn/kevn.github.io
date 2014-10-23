@@ -67,4 +67,4 @@ comments:
 </ul>
 <p>Do you use any great plugins you think people would love?</p>
 <h3>Feedback and Article Ideas</h3>
-<p>Want to see a topic explored here? <a href="/contact">Send Me a Message</a>.</p>
+<p>Want to see a topic explored here? <a href="https://twitter.com/{{ site.twitter_username }}">Send Me a Message</a>.</p>

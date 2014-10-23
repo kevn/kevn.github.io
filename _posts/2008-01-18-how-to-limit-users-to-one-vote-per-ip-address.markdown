@@ -101,4 +101,4 @@ end
 <h3>Further Reading</h3>
 <p><a href="{% post_url 2007-08-26-how-to-obtain-the-ip-address-of-the-current-user %}">How to obtain the IP address of the current user</a></p>
 <h3>Feedback and Article Ideas</h3>
-<p>Want to see a topic explored here? <a href="/contact">Send Me a Message</a>.</p>
+<p>Want to see a topic explored here? <a href="https://twitter.com/{{ site.twitter_username }}">Send Me a Message</a>.</p>
