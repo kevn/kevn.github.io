@@ -81,7 +81,7 @@ comments:
     MjAwOC0wOC0xNCAwODoxNDo0OSAtMDcwMA==
   content: thanks dude, this was actually useful.
 - id: 13953
-  author: ! "[ç­†è¨˜] åœ¨ Ruby on Rails è£¡å\x81šç°¡å–®çš„ IP é\x81Žæ¿¾ &laquo; YORKXINÃ—YORKXIN"
+  author: ! "[]  Ruby on Rails \x81 IP \x81 &laquo; YORKXINYORKXIN"
   author_email: ''
   author_url: http://chitsaou.wordpress.com/2009/01/17/rails-ip-filter/
   date: !binary |-
