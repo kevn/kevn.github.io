@@ -128,7 +128,7 @@ comments:
   date_gmt: !binary |-
     MjAxNC0wOS0xMyAyMjo1NTo0NiAtMDcwMA==
   content: ! "That is a great tip especially to those new to the blogosphere.\r\nSimple
-    but very accurate informationâ€¦ Thank you for \r\nsharing this one. A must read
+    but very accurate information" Thank you for \r\nsharing this one. A must read
     post!\r\n\r\nFor an incredible review please checkout \r\nthis page ... <a href=\"https://www.youtube.com/watch?v=nWTv_GRU8sQ\"
     rel=\"nofollow\">nail art gel</a>"
 - id: 225787

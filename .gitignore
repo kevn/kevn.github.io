@@ -12,6 +12,5 @@ bbin/
 gh-pages/
 site/_site/
 coverage
-.ruby-version
 tmp/stackprof-*
 
