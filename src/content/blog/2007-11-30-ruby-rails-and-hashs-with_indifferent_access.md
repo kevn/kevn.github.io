@@ -3,7 +3,7 @@ title: "Ruby, Rails and hash's with_indifferent_access"
 date: 2007-11-30T00:00:00-08:00
 ---
 
-<p class="post-image" style="width:100%;clear:both;"><a href="{{ site.image_path }}/long_name.jpg" title="Long Names"><img src="{{ site.image_path }}/long_name.jpg" width="455" height="130" alt="Long Names" /></a></p>
+<p class="post-image" style="width:100%;clear:both;"><a href="/images/long_name.jpg" title="Long Names"><img src="/images/long_name.jpg" width="455" height="130" alt="Long Names" /></a></p>
 <p>Ruby developers like to be clear in their naming of variables, modules, classes, methods, and so on. I believe this comes from the idea that code should need very few inline comments if it is written clearly and descriptively. This descriptive naming strategy, combined with the decidedly non-English origins of Ruby (Japanese) and Rails (Danish), often result in oddly-named creations such as <code>#execute_query_as_logged_in_user_without_transaction_logging</code> (which I just made up), and <code>#validates_numericality_of</code> (which is real).</p>
 <p>A newcomer might find these tongue-twisting, hyper-descriptive naming conventions maddening, but most of the time the intent becomes so much clearer as a result, it becomes infectious; in no time you find yourself writing your own 30-letter, borderline-semantically-correct method names and producing highly maintainable, readable, self-documenting code. That doesn't mean it happens all the time, though...</p>
 <p><a id="more"></a><a id="more-122"></a></p>

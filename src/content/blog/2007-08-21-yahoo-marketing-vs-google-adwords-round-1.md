@@ -3,7 +3,7 @@ title: "Yahoo Marketing vs Google Adwords (Round 1)"
 date: 2007-08-21T00:00:00-08:00
 ---
 
-<p><img class="alignleft" src='{{ site.image_path }}/picture-17.png' alt='Yahoo Ad' /><br />
+<p><img class="alignleft" src='/images/picture-17.png' alt='Yahoo Ad' /><br />
 I've been advertising Dibs.net on both the Google and Yahoo ad networks for three weeks. I'll have more to say later on, but I did want to share some notes about Yahoo's "editorial process" regarding what search terms they let you advertise against. This process is allegedly for quality purposes, so that more relevant advertising is displayed to searchers.</p>
 <p>Google has taken a more free-market approach to their editorializing of search terms you can advertise against. I'm sure they have a quality-control staff to keep ads clean, but they tend to let you spend your money however you want. I'm no Google fan, but I think Google's approach is far superior, mainly because the market actually does self-correct mispositioned advertising: as people find their advertising for certain keywords isn't working, they pare back the selection of keywords to be more laser-focused. I did this very thing; it works.</p>
 <p>Yahoo, on the other hand, voluntarily protects certain company names (though who knows which ones) and is awfully serious about the relevancy of keywords you choose. But it's all so inconsistent and confusing that you never know what they will allow. For example, they apparently allow some misspellings of brand names, but not others. And today I got notice they decided a term wasn't relevant enough to Dibs.net -- which surprised me, since I often describe Dibs.net using the exact term they rejected.</p>
