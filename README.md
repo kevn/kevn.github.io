@@ -147,6 +147,6 @@ Open sourced under the [MIT license](LICENSE.md).
 
 ## Author
 
-Kevin Marshall
+Kevin Hunt
 - Website: [https://kev.in](https://kev.in)
 - GitHub: [@kevn](https://github.com/kevn)
