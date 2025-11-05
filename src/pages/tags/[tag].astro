@@ -1,0 +1,71 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getBlogPostUrl } from '../../utils/urls';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog');
+
+  // Helper to slugify category names for URLs
+  function slugify(text: string): string {
+    return text.toLowerCase()
+      .replace(/&amp;/g, 'and')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+
+  // Build a map of tag slug -> { tag name, posts }
+  const tagMap = new Map<string, { name: string, posts: CollectionEntry<'blog'>[] }>();
+
+  allPosts.forEach(post => {
+    if (post.data.categories) {
+      post.data.categories.forEach(cat => {
+        const slug = slugify(cat);
+        if (!tagMap.has(slug)) {
+          tagMap.set(slug, { name: cat, posts: [] });
+        }
+        tagMap.get(slug)!.posts.push(post);
+      });
+    }
+  });
+
+  // Generate paths for each tag
+  return Array.from(tagMap.entries()).map(([slug, data]) => {
+    // Sort posts by date, newest first
+    const sortedPosts = data.posts.sort((a, b) =>
+      b.data.date.getTime() - a.data.date.getTime()
+    );
+
+    return {
+      params: { tag: slug },
+      props: { tagName: data.name, posts: sortedPosts },
+    };
+  });
+}
+
+const { tagName, posts } = Astro.props;
+---
+
+<BaseLayout title={`Posts tagged "${tagName}"`} description={`All posts tagged with ${tagName}`}>
+  <div class="page">
+    <h1 class="page-title">Posts tagged "{tagName}"</h1>
+
+    <div class="posts">
+      {posts.map((post: CollectionEntry<'blog'>) => (
+        <article class="post">
+          <h2 class="post-title">
+            <a href={getBlogPostUrl(post)}>{post.data.title}</a>
+          </h2>
+          <time class="post-date" datetime={post.data.date.toISOString()}>
+            {new Intl.DateTimeFormat('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            }).format(post.data.date)}
+          </time>
+        </article>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,57 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  date: Date;
+  description?: string;
+  categories?: string[];
+}
+
+const { title, date, description, categories } = Astro.props;
+
+const formattedDate = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+}).format(date);
+
+// Helper to slugify category names for URLs
+function slugify(text: string): string {
+  return text.toLowerCase()
+    .replace(/&amp;/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">{title}</h1>
+      <time class="post-date" datetime={date.toISOString()}>
+        {formattedDate}
+        {categories && categories.length > 0 && (
+          <span class="post-categories">
+            {' • '}
+            {categories.map((cat, idx) => (
+              <>
+                <a href={`/tags/${slugify(cat)}`}>{cat}</a>
+                {idx < categories.length - 1 && ' • '}
+              </>
+            ))}
+          </span>
+        )}
+      </time>
+    </header>
+
+    <div class="post-content">
+      <slot />
+    </div>
+
+    <footer class="post-footer">
+      <h3>Feedback and Article Ideas</h3>
+      <p>Want to see a topic explored here? <a href="https://twitter.com/kev_in">Send Me a Message</a>.</p>
+    </footer>
+  </article>
+</BaseLayout>

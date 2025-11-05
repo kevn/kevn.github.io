@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getBlogPostUrl, PAGINATION_CONFIG, getPaginationUrl } from '../utils/urls';
+
+// Get all blog posts and sort by date (newest first)
+const allPosts = await getCollection('blog');
+const sortedPosts = allPosts.sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+// Pagination
+const postsToShow = sortedPosts.slice(0, PAGINATION_CONFIG.postsPerPage);
+const hasMore = sortedPosts.length > PAGINATION_CONFIG.postsPerPage;
+---
+
+<BaseLayout>
+  <div class="posts">
+    {await Promise.all(postsToShow.map(async (post) => {
+      const formattedDate = new Intl.DateTimeFormat('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      }).format(post.data.date);
+
+      const postUrl = getBlogPostUrl(post);
+      const { Content } = await post.render();
+
+      return (
+        <article class="post">
+          <h1 class="post-title">
+            <a href={postUrl}>{post.data.title}</a>
+          </h1>
+          <time class="post-date" datetime={post.data.date.toISOString()}>
+            {formattedDate}
+          </time>
+          <div class="post-content">
+            <Content />
+          </div>
+        </article>
+      );
+    }))}
+  </div>
+
+  <div class="pagination">
+    {hasMore ? (
+      <a class="pagination-item" href={getPaginationUrl(2)}>Older</a>
+    ) : (
+      <span class="pagination-item disabled">Older</span>
+    )}
+    <span class="pagination-item disabled">Newer</span>
+  </div>
+</BaseLayout>

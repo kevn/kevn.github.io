@@ -1,0 +1,70 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getBlogPostUrl, PAGINATION_CONFIG, getPaginationUrl } from '../utils/urls';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog');
+  const sortedPosts = allPosts.sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+  );
+
+  const totalPages = Math.ceil(sortedPosts.length / PAGINATION_CONFIG.postsPerPage);
+
+  // Generate pages 2, 3, 4, etc. (page 1 is index.astro)
+  return Array.from({ length: totalPages - 1 }, (_, i) => {
+    const pageNum = i + 2; // Start from page 2
+    const start = (pageNum - 1) * PAGINATION_CONFIG.postsPerPage;
+    const end = start + PAGINATION_CONFIG.postsPerPage;
+
+    return {
+      params: { page: pageNum.toString() },
+      props: {
+        posts: sortedPosts.slice(start, end),
+        currentPage: pageNum,
+        totalPages,
+      },
+    };
+  });
+}
+
+const { posts, currentPage, totalPages } = Astro.props;
+---
+
+<BaseLayout>
+  <div class="posts">
+    {await Promise.all(posts.map(async (post) => {
+      const formattedDate = new Intl.DateTimeFormat('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      }).format(post.data.date);
+
+      const postUrl = getBlogPostUrl(post);
+      const { Content } = await post.render();
+
+      return (
+        <article class="post">
+          <h1 class="post-title">
+            <a href={postUrl}>{post.data.title}</a>
+          </h1>
+          <time class="post-date" datetime={post.data.date.toISOString()}>
+            {formattedDate}
+          </time>
+          <div class="post-content">
+            <Content />
+          </div>
+        </article>
+      );
+    }))}
+  </div>
+
+  <div class="pagination">
+    {currentPage < totalPages ? (
+      <a class="pagination-item" href={getPaginationUrl(currentPage + 1)}>Older</a>
+    ) : (
+      <span class="pagination-item disabled">Older</span>
+    )}
+    <a class="pagination-item" href={getPaginationUrl(currentPage - 1)}>Newer</a>
+  </div>
+</BaseLayout>
