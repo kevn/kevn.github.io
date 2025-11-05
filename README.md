@@ -1,118 +1,152 @@
-# Hyde
+# kev.in
 
-Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a prominent sidebar with uncomplicated content. It's based on [Poole](http://getpoole.com), the Jekyll butler.
+Personal blog built with [Astro](https://astro.build), featuring a clean, minimal design with a prominent sidebar.
 
-![Hyde screenshot](https://f.cloud.github.com/assets/98681/1831228/42af6c6a-7384-11e3-98fb-e0b923ee0468.png)
+Live site: [https://kev.in](https://kev.in)
 
+## Overview
 
-## Contents
+This is a modern, fast static site built with Astro 4, migrated from Jekyll. The site features:
 
-- [Usage](#usage)
-- [Options](#options)
-  - [Sidebar menu](#sidebar-menu)
-  - [Sticky sidebar content](#sticky-sidebar-content)
-  - [Themes](#themes)
-  - [Reverse layout](#reverse-layout)
-- [Development](#development)
-- [Author](#author)
-- [License](#license)
+- **Fast performance** - Static site generation with Astro
+- **Blog with pagination** - Organized blog posts with tag support
+- **RSS feed** - Automatic RSS feed generation
+- **Sitemap** - SEO-friendly sitemap generation
+- **Markdown support** - Write posts in Markdown with syntax highlighting
+- **Clean design** - Minimal, readable layout with sidebar navigation
 
+## Tech Stack
 
-## Usage
+- [Astro 4.15](https://astro.build) - Static site generator
+- TypeScript - Type-safe development
+- GitHub Actions - Automated deployment
+- GitHub Pages - Hosting
 
-Hyde is a theme built on top of [Poole](https://github.com/poole/poole), which provides a fully furnished Jekyll setup—just download and start the Jekyll server. See [the Poole usage guidelines](https://github.com/poole/poole#usage) for how to install and use Jekyll.
-
-
-## Options
-
-Hyde includes some customizable options, typically applied via classes on the `<body>` element.
-
-
-### Sidebar menu
-
-Create a list of nav links in the sidebar by assigning each Jekyll page the correct layout in the page's [front-matter](http://jekyllrb.com/docs/frontmatter/).
+## Project Structure
 
 ```
----
-layout: page
-title: About
----
+/
+├── public/          # Static assets (images, icons, etc.)
+├── src/
+│   ├── content/
+│   │   └── blog/    # Blog posts in Markdown
+│   ├── layouts/     # Astro layouts
+│   │   ├── BaseLayout.astro
+│   │   └── BlogPost.astro
+│   ├── pages/       # Astro pages (routes)
+│   │   ├── index.astro
+│   │   ├── [year]/  # Dynamic blog post routes
+│   │   ├── tags/    # Tag pages
+│   │   └── feed.xml.ts
+│   ├── styles/      # CSS styles
+│   └── utils/       # Utility functions
+├── astro.config.mjs # Astro configuration
+└── package.json     # Dependencies and scripts
 ```
 
-**Why require a specific layout?** Jekyll will return *all* pages, including the `atom.xml`, and with an alphabetical sort order. To ensure the first link is *Home*, we exclude the `index.html` page from this list by specifying the `page` layout.
+## Getting Started
 
+### Prerequisites
 
-### Sticky sidebar content
+- Node.js 20 or higher
+- npm
 
-By default Hyde ships with a sidebar that affixes it's content to the bottom of the sidebar. You can optionally disabled this by removing the `.sidebar-sticky` class from the sidebar's `.container`. Sidebar content will then normally flow from top to bottom.
+### Installation
 
-```html
-<!-- Default sidebar -->
-<div class="sidebar">
-  <div class="container sidebar-sticky">
-    ...
-  </div>
-</div>
+```bash
+# Clone the repository
+git clone https://github.com/kevn/kevn.github.io.git
+cd kevn.github.io
 
-<!-- Modified sidebar -->
-<div class="sidebar">
-  <div class="container">
-    ...
-  </div>
-</div>
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
 
-
-### Themes
-
-Hyde ships with eight optional themes based on the [base16 color scheme](https://github.com/chriskempson/base16). Apply a theme to change the color scheme (mostly applies to sidebar and links).
-
-![Hyde in red](https://f.cloud.github.com/assets/98681/1831229/42b0b354-7384-11e3-8462-31b8df193fe5.png)
-
-There are eight themes available at this time.
-
-![Hyde theme classes](https://f.cloud.github.com/assets/98681/1817044/e5b0ec06-6f68-11e3-83d7-acd1942797a1.png)
-
-To use a theme, add anyone of the available theme classes to the `<body>` element in the `default.html` layout, like so:
-
-```html
-<body class="theme-base-08">
-  ...
-</body>
-```
-
-To create your own theme, look to the Themes section of [included CSS file](https://github.com/poole/hyde/blob/master/public/css/hyde.css). Copy any existing theme (they're only a few lines of CSS), rename it, and change the provided colors.
-
-### Reverse layout
-
-![Hyde with reverse layout](https://f.cloud.github.com/assets/98681/1831230/42b0d3ac-7384-11e3-8d54-2065afd03f9e.png)
-
-Hyde's page orientation can be reversed with a single class.
-
-```html
-<body class="layout-reverse">
-  ...
-</body>
-```
-
+The site will be available at `http://localhost:4321`
 
 ## Development
 
-Hyde has two branches, but only one is used for active development.
+### Available Scripts
 
-- `master` for development.  **All pull requests should be to submitted against `master`.**
-- `gh-pages` for our hosted site, which includes our analytics tracking code. **Please avoid using this branch.**
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build locally
+- `npm run astro` - Run Astro CLI commands
 
+### Writing Blog Posts
 
-## Author
+Blog posts are stored in `src/content/blog/` as Markdown files. Each post should include frontmatter:
 
-**Mark Otto**
-- <https://github.com/mdo>
-- <https://twitter.com/mdo>
+```markdown
+---
+title: "Your Post Title"
+date: 2024-01-01
+tags: [tag1, tag2]
+---
 
+Your post content here...
+```
+
+### Styling
+
+Global styles are in `src/styles/`. The site uses a clean, minimal design with a focus on readability.
+
+### Configuration
+
+Edit `astro.config.mjs` to customize:
+- Site URL
+- Integrations
+- Markdown settings
+- Build options
+
+## Deployment
+
+The site automatically deploys to GitHub Pages when changes are pushed to the `master` branch via GitHub Actions.
+
+### Manual Deployment
+
+```bash
+# Build the site
+npm run build
+
+# The output will be in the dist/ directory
+```
+
+## Features
+
+### Syntax Highlighting
+
+Code blocks are automatically highlighted using Shiki with the GitHub Light theme.
+
+### RSS Feed
+
+An RSS feed is automatically generated at `/feed.xml`
+
+### Sitemap
+
+A sitemap is automatically generated for SEO at `/sitemap-0.xml`
+
+### Pagination
+
+Blog posts are paginated on the home page for better performance.
+
+### Tags
+
+Posts can be tagged and browsed by tag at `/tags`
+
+## Migration Notes
+
+This site was migrated from Jekyll (Hyde theme) to Astro in 2024. Legacy blog posts may contain HTML that is preserved through the markdown pipeline.
 
 ## License
 
 Open sourced under the [MIT license](LICENSE.md).
 
-<3
+## Author
+
+Kevin Hunt
+- Website: [https://kev.in](https://kev.in)
+- GitHub: [@kevn](https://github.com/kevn)
