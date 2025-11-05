@@ -11,6 +11,7 @@ date: 2007-08-26T00:00:00-08:00
 <p>Rails' <code>request.remote_ip</code> method is pretty smart: it looks for and parses the headers <code>HTTP_CLIENT_IP</code>, <code>HTTP_X_FORWARDED_FOR</code> and <code>REMOTE_ADDR</code> and parse the value which are commonly used for this purpose.</p>
 <h3>Example Rails Code</h3>
 <p class="code-source">In <span class="filename">RAILS_ROOT/app/controllers/show_my_ip_controller.rb</span>:</p>
+
 ```ruby
 class ShowMyIpController > ApplicationController
 
@@ -19,11 +20,16 @@ class ShowMyIpController > ApplicationController
   end
 
 end
+
 ```
+
 <p class="code-source">In <span class="filename">RAILS_ROOT/app/views/show_my_ip/index.html.erb</span>:</p>
+
 ```html
 Your IP address is <%= @client_ip >
+
 ```
+
 <h3>Further Reading</h3>
 <p>The <code>request.remote_ip</code> method is documented in the <a href="http://api.rubyonrails.org/classes/ActionController/AbstractRequest.html#M000235">Rails Framework rdocs</a>.</p>
 <h3>Feedback and Article Ideas</h3>

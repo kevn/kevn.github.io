@@ -3,7 +3,6 @@ title: "Top Ten Most Frequently Things Overheard* at RailsConf '07 in Portland, 
 date: 2007-05-21T00:00:00-08:00
 ---
 
-
 <ul>
 <li>10. "WTF, I've been here four days and have yet to see the Space Needle..."</li>
 <li>9. "Is DHH single?"</li>

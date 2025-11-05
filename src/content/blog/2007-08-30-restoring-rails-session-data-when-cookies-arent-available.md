@@ -16,6 +16,7 @@ If you've ever needed to implement user-friendly upload, you know intimately wha
 <p>I use a modified version of the <code><a href="http://technoweenie.stikipad.com/plugins/show/Acts+as+Authenticated">acts_as_authenticated</a></code> plugin. Upon authentication, the plugin sets the <code>:user</code> session key to the authenticated user's <code>id</code>. You'll need to adapt for your own configuration.</p>
 <h3>Example Rails Code</h3>
 <p class="code-source">In <span class="filename">RAILS_ROOT/app/controllers/show_my_ip_controller.rb</span>:</p>
+
 ```ruby
 class ImagesController < ApplicationController
 	session :off, :only => :create
@@ -35,11 +36,16 @@ class ImagesController < ApplicationController
     	authorization_required
   	end
 end
+
 ```
+
 <p class="code-source">Then we include the session id as a parameter in the form's action URL in the view:</p>
+
 ```html
 <form action="<%= images_path(:_session_id => session.session_id) %>" method="post" id="photoupload" enctype="multipart/form-data">
+
 ```
+
 <h3>How it works</h3>
 <p>Under normal circumstances the <code>acts_as_authenticated</code> plugin sets the <code>@current_user</code> instance variable to the current logged-in user at the start of each request. Since we have no session data when a Flash app hits the controller, there's effectively no <code>current_user</code>. Our goal is to get <code>current_user</code> working, so we:</p>
 <ul>
