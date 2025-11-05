@@ -7,7 +7,8 @@ export default defineConfig({
   integrations: [sitemap()],
   markdown: {
     shikiConfig: {
-      theme: 'github-dark',
+      theme: 'github-light',
+      wrap: true,
     },
     // Allow raw HTML in markdown (for legacy blog posts)
     remarkRehype: {
