@@ -1,6 +1,8 @@
 ---
 title: "! 'Thanksgiving: Thanks for Radio Lab'"
 date: 2007-11-26T00:00:00-08:00
+categories:
+  - "Internet"
 ---
 
 <p><img class="alignright" src="/images/8c3343f4-4489-48a2-92ad-ad00cce923e4.jpg" alt="8C3343F4-4489-48A2-92AD-AD00CCE923E4.jpg" border="0" width="200" height="150" />

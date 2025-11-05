@@ -1,6 +1,8 @@
 ---
 title: "Top Ten Most Frequently Things Overheard* at RailsConf '07 in Portland, OR"
 date: 2007-05-21T00:00:00-08:00
+categories:
+  - "RailsConf"
 ---
 
 <ul>

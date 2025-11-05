@@ -1,6 +1,9 @@
 ---
 title: "De-tangling attr_reader, attr_writer and attr_accessor from attr_protected"
 date: 2007-08-27T00:00:00-08:00
+categories:
+  - "Models"
+  - "Ruby"
 ---
 
 <p><img class="alignright" src="/images/274334_6040.jpg" title="Car crash" alt="Car crash" height="107" width="160" />What a mess. You have undoubtedly run across these methods sprinkled throughout the Ruby and Rails world. If you've been working with Rails for even a short time, you've probably read a little about security and <code>attr_accessible</code>. But do you really understand what each of them do and when to use them?<br />

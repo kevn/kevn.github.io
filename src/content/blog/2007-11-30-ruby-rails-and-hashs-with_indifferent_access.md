@@ -1,6 +1,8 @@
 ---
 title: "Ruby, Rails and hash's with_indifferent_access"
 date: 2007-11-30T00:00:00-08:00
+categories:
+  - "Ruby"
 ---
 
 <p class="post-image" style="width:100%;clear:both;"><a href="/images/long_name.jpg" title="Long Names"><img src="/images/long_name.jpg" width="455" height="130" alt="Long Names" /></a></p>

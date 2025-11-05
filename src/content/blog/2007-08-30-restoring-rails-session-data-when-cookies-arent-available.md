@@ -1,6 +1,9 @@
 ---
 title: "Restoring Rails session data when cookies aren't available"
 date: 2007-08-30T00:00:00-08:00
+categories:
+  - "Controllers"
+  - "Filters"
 ---
 
 <p><img class="alignright" src="/images/cookie.jpg" title="C is for Cookie" alt="C is for Cookie" height="125" width="180" /><br />

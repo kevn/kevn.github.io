@@ -1,6 +1,9 @@
 ---
 title: "Announcing dibs.net"
 date: 2007-08-01T00:00:00-08:00
+categories:
+  - "Business"
+  - "Announcements"
 ---
 
 <p>You might be wondering what I've been up to since leaving my job several months ago. I made a movie to explain, in a series of pictures, what my day-to-day life of the last four months has entailed.</p>

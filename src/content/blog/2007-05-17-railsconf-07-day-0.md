@@ -1,6 +1,10 @@
 ---
 title: "! 'RailsConf ''07: Day 0'"
 date: 2007-05-17T00:00:00-08:00
+categories:
+  - "Coding"
+  - "Travel"
+  - "RailsConf"
 ---
 
 <p>I managed to snag a secondhand ticket on last week and drove to Portland yesterday for RailsConf '07. Today was "tutorial day." As Jason Hoffman noted in the first half of the day, "tutorial day" is a bit of a misnomer; it's simply a day with longer sessions.</p>

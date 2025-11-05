@@ -1,6 +1,8 @@
 ---
 title: "One of these days"
 date: 2007-02-06T00:00:00-08:00
+categories:
+  - "Announcements"
 ---
 
 <p><strong>One of these days</strong> I'm going to start a blog. <em>It will be perfect.</em></p>

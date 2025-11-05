@@ -1,6 +1,8 @@
 ---
 title: "! 'RailsConf ''07: Day 1'"
 date: 2007-05-18T00:00:00-08:00
+categories:
+  - "RailsConf"
 ---
 
 <p>Back from the first real day of RailsConf after yesterday's tutorial day.</p>

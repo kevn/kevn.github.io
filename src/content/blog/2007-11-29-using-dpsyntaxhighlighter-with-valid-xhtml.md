@@ -1,6 +1,9 @@
 ---
 title: "Using dp.SyntaxHighlighter with Valid XHTML"
 date: 2007-11-29T00:00:00-08:00
+categories:
+  - "Coding"
+  - "Internet"
 ---
 
 Over at [Rails Authority][railsauthority] I use a great client-side syntax highlighter called <a href="http://code.google.com/p/syntaxhighlighter/">SyntaxHighlighter</a> to make code examples look nice, but it doesn't <a href="http://groups.google.com/group/syntaxhighlighter/browse_thread/thread/e6dac1c90d8faaa1/df95d0e0c7d63ca9">support</a> <a href="http://groups.google.com/group/syntaxhighlighter/browse_thread/thread/a8a8edd03b905020/2ac5b2ad8cf3f7ee">Valid XHTML</a> , so I enhanced it to handle an XHTML-compatible style, e.g.:

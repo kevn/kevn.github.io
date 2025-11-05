@@ -1,6 +1,10 @@
 ---
 title: "How to limit users to one vote per IP address"
 date: 2008-01-18T00:00:00-08:00
+categories:
+  - "Controllers"
+  - "Models"
+  - "Migrations"
 ---
 
 <p>A reader <strong>Aaron J.</strong> <a href="/2007/08/26/how-to-obtain-the-ip-address-of-the-current-user.html#comment-6">writes</a> in response to the short article <a href="/2007/08/26/how-to-obtain-the-ip-address-of-the-current-user.html">How to obtain the IP address of the current user</a>:</p>

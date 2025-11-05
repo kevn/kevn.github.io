@@ -1,6 +1,8 @@
 ---
 title: "How to obtain the IP address of the current user"
 date: 2007-08-26T00:00:00-08:00
+categories:
+  - "Controllers"
 ---
 
 <p><img class="alignright" src="/images/address.jpg" title="Some house address" alt="Some house address" height="88" width="160" /></p>

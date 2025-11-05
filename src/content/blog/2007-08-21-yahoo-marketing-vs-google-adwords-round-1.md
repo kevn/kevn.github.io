@@ -1,6 +1,9 @@
 ---
 title: "Yahoo Marketing vs Google Adwords (Round 1)"
 date: 2007-08-21T00:00:00-08:00
+categories:
+  - "Internet"
+  - "Business"
 ---
 
 <p><img class="alignleft" src='/images/picture-17.png' alt='Yahoo Ad' /><br />

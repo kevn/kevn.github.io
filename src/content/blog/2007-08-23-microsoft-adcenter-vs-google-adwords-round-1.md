@@ -1,6 +1,9 @@
 ---
 title: "Microsoft adCenter vs Google Adwords (Round 1)"
 date: 2007-08-23T00:00:00-08:00
+categories:
+  - "Internet"
+  - "Business"
 ---
 
 <p>At the risk of being called a keyword Nazi and having to endure accusations that I care just a little too much about this stuff: Microsoft just managed surpass <a href="http://kev.in/2007/08/21/yahoo-marketing-vs-google-adwords-round-1/">my experience with Yahoo</a>.</p>

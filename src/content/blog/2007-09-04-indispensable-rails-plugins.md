@@ -1,6 +1,12 @@
 ---
 title: "Indispensable Rails Plugins"
 date: 2007-09-04T00:00:00-08:00
+categories:
+  - "Plugins"
+  - "acts_as_solr"
+  - "attachment_fu"
+  - "geokit"
+  - "paginating_find"
 ---
 
 <p><a href="http://www.jroller.com/obie/entry/rails_plugins_worth_their_something">Obie Fernandez's post about his most favored plugins</a> prompted me to consider how much I use not only the Rails core framework, but also some excellent plugins that let me focus more on solving domain problems rather than technical ones. Below, the plugins I find indispensable in my work on <a href="http://dibs.net">Dibs.net</a>.</p>

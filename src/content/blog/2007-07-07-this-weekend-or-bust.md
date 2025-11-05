@@ -1,6 +1,10 @@
 ---
 title: "This Weekend or Bust"
 date: 2007-07-07T00:00:00-08:00
+categories:
+  - "Business"
+  - "Announcements"
+  - "Ruby & Rails"
 ---
 
 <p>For the last few months I've worked tirelessly on my pet-project-cum-fulltime-startup. The cadence of my work has accelerated in recent weeks as I have put myself under more and more pressure to "go live." I have pulled all-nighters or crashed into bed at 5am more frequently than I'd like to admit. Through the neglect of non-essential errands, my car has developed a thick film of grime on its exterior and my hair has become shaggy and unkempt. My eyes are permanently bloodshot. My dog no longer reacts to the word "park."</p>
