@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getBlogPostUrl, PAGINATION_CONFIG, getPaginationUrl } from '../utils/urls';
 
 // Get all blog posts and sort by date (newest first)
 const allPosts = await getCollection('blog');
@@ -8,10 +9,9 @@ const sortedPosts = allPosts.sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
 
-// Pagination: 10 posts per page
-const POSTS_PER_PAGE = 10;
-const postsToShow = sortedPosts.slice(0, POSTS_PER_PAGE);
-const hasMore = sortedPosts.length > POSTS_PER_PAGE;
+// Pagination
+const postsToShow = sortedPosts.slice(0, PAGINATION_CONFIG.postsPerPage);
+const hasMore = sortedPosts.length > PAGINATION_CONFIG.postsPerPage;
 ---
 
 <BaseLayout>
@@ -23,15 +23,7 @@ const hasMore = sortedPosts.length > POSTS_PER_PAGE;
         day: 'numeric',
       }).format(post.data.date);
 
-      // Extract slug from the filename (remove .md extension)
-      const filename = post.id.replace('.md', '');
-      const [year, month, day, ...titleParts] = filename.split('-');
-      const titleSlug = titleParts.join('-');
-
-      // Preserve original URL format: /YYYY/MM/DD/title.html
-      const postUrl = `/${year}/${month}/${day}/${titleSlug}.html`;
-
-      // Render the post content
+      const postUrl = getBlogPostUrl(post);
       const { Content } = await post.render();
 
       return (
@@ -52,7 +44,7 @@ const hasMore = sortedPosts.length > POSTS_PER_PAGE;
 
   <div class="pagination">
     {hasMore ? (
-      <a class="pagination-item" href="/page2">Older</a>
+      <a class="pagination-item" href={getPaginationUrl(2)}>Older</a>
     ) : (
       <span class="pagination-item disabled">Older</span>
     )}

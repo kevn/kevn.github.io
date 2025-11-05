@@ -1,15 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
 import BlogPost from '../../../../layouts/BlogPost.astro';
+import { getPostDateFromFilename } from '../../../../utils/urls';
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
 
   return blogEntries.map((post) => {
-    // Extract date and slug from filename
-    const filename = post.id.replace('.md', '');
-    const [year, month, day, ...titleParts] = filename.split('-');
-    const slug = titleParts.join('-');
+    const { year, month, day, slug } = getPostDateFromFilename(post.id);
 
     return {
       params: { year, month, day, slug },

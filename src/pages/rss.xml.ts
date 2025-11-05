@@ -1,6 +1,7 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 import type { APIContext } from 'astro';
+import { getBlogPostUrl } from '../utils/urls';
 
 export async function GET(context: APIContext) {
   const blog = await getCollection('blog');
@@ -12,19 +13,12 @@ export async function GET(context: APIContext) {
     title: 'Kev.in',
     description: 'It was a musical thing and you were supposed to sing.',
     site: context.site!,
-    items: sortedPosts.map((post) => {
-      const filename = post.id.replace('.md', '');
-      const [year, month, day, ...titleParts] = filename.split('-');
-      const slug = titleParts.join('-');
-      const link = `/${year}/${month}/${day}/${slug}.html`;
-
-      return {
-        title: post.data.title,
-        pubDate: post.data.date,
-        description: post.data.description || '',
-        link,
-      };
-    }),
+    items: sortedPosts.map((post) => ({
+      title: post.data.title,
+      pubDate: post.data.date,
+      description: post.data.description || '',
+      link: getBlogPostUrl(post),
+    })),
     customData: `<language>en-us</language>`,
   });
 }
