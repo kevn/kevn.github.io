@@ -16,7 +16,7 @@ If you've ever needed to implement user-friendly upload, you know intimately wha
 <p>I use a modified version of the <code><a href="http://technoweenie.stikipad.com/plugins/show/Acts+as+Authenticated">acts_as_authenticated</a></code> plugin. Upon authentication, the plugin sets the <code>:user</code> session key to the authenticated user's <code>id</code>. You'll need to adapt for your own configuration.</p>
 <h3>Example Rails Code</h3>
 <p class="code-source">In <span class="filename">RAILS_ROOT/app/controllers/show_my_ip_controller.rb</span>:</p>
-{% highlight ruby %}
+```ruby
 class ImagesController < ApplicationController
 	session :off, :only => :create
 	prepend_before_filter :restore_session_user_from_param, :only => :create
@@ -35,11 +35,11 @@ class ImagesController < ApplicationController
     	authorization_required
   	end
 end
-{% endhighlight %}
+```
 <p class="code-source">Then we include the session id as a parameter in the form's action URL in the view:</p>
-{% highlight html %}
+```html
 <form action="<%= images_path(:_session_id => session.session_id) %>" method="post" id="photoupload" enctype="multipart/form-data">
-{% endhighlight %}
+```
 <h3>How it works</h3>
 <p>Under normal circumstances the <code>acts_as_authenticated</code> plugin sets the <code>@current_user</code> instance variable to the current logged-in user at the start of each request. Since we have no session data when a Flash app hits the controller, there's effectively no <code>current_user</code>. Our goal is to get <code>current_user</code> working, so we:</p>
 <ul>
@@ -54,4 +54,4 @@ end
 <h3><strong>Update:</strong> A Word of Caution</h3>
 <p>I forgot to mention when I published this earlier that there's a reason parameterized sessions is discouraged: browsers will send the entire current link, including the session id, in referer headers to offsite hosts. This doesn't affect Dibs.net's Flash upload, but in other scenarios use the above with caution, or with SSL.</p>
 <h3>Feedback and Article Ideas</h3>
-<p>Want to see a topic explored here? <a href="https://twitter.com/{{ site.twitter_username }}">Send Me a Message</a>.</p>
+<p>Want to see a topic explored here? <a href="https://twitter.com/kev_in">Send Me a Message</a>.</p>
