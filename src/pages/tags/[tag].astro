@@ -52,24 +52,20 @@ const { tagName, posts } = Astro.props;
     <h1 class="page-title">Posts tagged "{tagName}"</h1>
 
     <div class="posts">
-      {posts.map((post: CollectionEntry<'blog'>) => {
-        const formattedDate = new Intl.DateTimeFormat('en-US', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-        }).format(post.data.date);
-
-        return (
-          <article class="post">
-            <h2 class="post-title">
-              <a href={getBlogPostUrl(post)}>{post.data.title}</a>
-            </h2>
-            <time class="post-date" datetime={post.data.date.toISOString()}>
-              {formattedDate}
-            </time>
-          </article>
-        );
-      })}
+      {posts.map((post: CollectionEntry<'blog'>) => (
+        <article class="post">
+          <h2 class="post-title">
+            <a href={getBlogPostUrl(post)}>{post.data.title}</a>
+          </h2>
+          <time class="post-date" datetime={post.data.date.toISOString()}>
+            {new Intl.DateTimeFormat('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            }).format(post.data.date)}
+          </time>
+        </article>
+      ))}
     </div>
   </div>
 </BaseLayout>
