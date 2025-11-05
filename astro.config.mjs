@@ -9,6 +9,14 @@ export default defineConfig({
     shikiConfig: {
       theme: 'github-dark',
     },
+    // Allow raw HTML in markdown (for legacy blog posts)
+    remarkRehype: {
+      allowDangerousHtml: true,
+    },
+    rehypePlugins: [
+      // Preserve HTML in the output
+      () => (tree) => tree,
+    ],
   },
   build: {
     format: 'file',

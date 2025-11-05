@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 interface Props {
   title?: string;
   description?: string;
@@ -8,7 +10,7 @@ interface Props {
 const {
   title = "Kev.in",
   description = "It was a musical thing and you were supposed to sing.",
-  image = "/public/apple-touch-icon-144-precomposed.png"
+  image = "/apple-touch-icon-144-precomposed.png"
 } = Astro.props;
 
 const siteTitle = title === "Kev.in" ? title : `${title} · Kev.in`;
@@ -20,8 +22,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="/public/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144-precomposed.png" />
 
     <title>{siteTitle}</title>
     <meta name="description" content={description} />
@@ -49,8 +51,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <!-- RSS -->
     <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />
-
-    <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>

@@ -16,7 +16,7 @@ const hasMore = sortedPosts.length > POSTS_PER_PAGE;
 
 <BaseLayout>
   <div class="posts">
-    {postsToShow.map((post) => {
+    {await Promise.all(postsToShow.map(async (post) => {
       const formattedDate = new Intl.DateTimeFormat('en-US', {
         year: 'numeric',
         month: 'long',
@@ -31,6 +31,9 @@ const hasMore = sortedPosts.length > POSTS_PER_PAGE;
       // Preserve original URL format: /YYYY/MM/DD/title.html
       const postUrl = `/${year}/${month}/${day}/${titleSlug}.html`;
 
+      // Render the post content
+      const { Content } = await post.render();
+
       return (
         <article class="post">
           <h1 class="post-title">
@@ -39,9 +42,12 @@ const hasMore = sortedPosts.length > POSTS_PER_PAGE;
           <time class="post-date" datetime={post.data.date.toISOString()}>
             {formattedDate}
           </time>
+          <div class="post-content">
+            <Content />
+          </div>
         </article>
       );
-    })}
+    }))}
   </div>
 
   <div class="pagination">
