@@ -391,6 +391,30 @@ a.pagination-item:hover {
   color: #90a959;
 }
 
+/* Sidebar Icon Links */
+#sidebar-icon-links {
+  max-width: 10rem;
+  margin-top: 1rem;
+}
+
+#sidebar-icon-links .icon {
+  display: inline-block;
+  margin: 0 0.25rem;
+  text-decoration: none;
+}
+
+#sidebar-icon-links .icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: rgba(255, 255, 255, 0.5);
+  transition: fill 0.2s ease;
+}
+
+#sidebar-icon-links .icon:hover svg,
+#sidebar-icon-links .icon:focus svg {
+  fill: rgba(255, 255, 255, 0.85);
+}
+
 /* Syntax Highlighting */
 .highlight {
   margin-bottom: 1rem;

@@ -33,5 +33,5 @@ export function getPaginationUrl(pageNum: number): string {
  * Configuration for pagination
  */
 export const PAGINATION_CONFIG = {
-  postsPerPage: 10,
+  postsPerPage: 5,
 } as const;
