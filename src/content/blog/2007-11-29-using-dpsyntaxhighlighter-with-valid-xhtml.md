@@ -53,8 +53,18 @@ Further down, at line ~ 657 insert this right before <code>options = options.spl
 </ol>
 <p>This should be backward-compatible with the existing pre and textarea methods.</p>
 <p>And here's the diff of the above steps:</p>
+
 <code>$ diff shCore.js.orig shCore.js</code>
 
 ```diff
 618c618
 <                       if(tags[i].getAttribute('name') == name)
+---
+>                       if(tags[i].getAttribute('name') == name || tags[i].className.indexOf(name)==0)
+627a628
+>       FindTagsByName(elements, name, 'code');
+657a659
+>               options = options.replace(new RegExp("^"+name+"\s"), ''); // Turn 'dp-hilite ruby:option1:option2' into 'ruby:option1:option2'
+```
+
+[railsauthority]:  http://railsauthority.com
