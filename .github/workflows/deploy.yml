@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main, claude/modernize-site-libraries-011CUpGWvGD45UnoMucmpPjA]
+    branches: [master]
   workflow_dispatch:
 
 permissions:
@@ -47,8 +47,8 @@ jobs:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
-    # Only deploy from main branch
-    if: github.ref == 'refs/heads/main'
+    # Only deploy from master branch
+    if: github.ref == 'refs/heads/master'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
