@@ -1,0 +1,80 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = "Kev.in",
+  description = "It was a musical thing and you were supposed to sing.",
+  image = "/public/apple-touch-icon-144-precomposed.png"
+} = Astro.props;
+
+const siteTitle = title === "Kev.in" ? title : `${title} · Kev.in`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/public/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png" />
+
+    <title>{siteTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.site)} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={siteTitle} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.site)} />
+    <meta name="twitter:creator" content="@kev_in" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />
+
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="sidebar" role="navigation" aria-label="Main">
+      <div class="container">
+        <div class="sidebar-about">
+          <h1>
+            <a href="/">Kev.in</a>
+          </h1>
+          <p class="lead">It was a musical thing and you were supposed to sing.</p>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a class="sidebar-nav-item" href="/">Home</a>
+          <a class="sidebar-nav-item" href="https://github.com/kevn" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="sidebar-nav-item" href="https://twitter.com/kev_in" target="_blank" rel="noopener noreferrer">Twitter</a>
+        </nav>
+
+        <p class="copyright">&copy; {new Date().getFullYear()} Kevin Hunt</p>
+      </div>
+    </div>
+
+    <main id="main-content" class="content container" role="main">
+      <slot />
+    </main>
+  </body>
+</html>

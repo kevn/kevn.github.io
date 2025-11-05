@@ -1,0 +1,55 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Get all blog posts and sort by date (newest first)
+const allPosts = await getCollection('blog');
+const sortedPosts = allPosts.sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+// Pagination: 10 posts per page
+const POSTS_PER_PAGE = 10;
+const postsToShow = sortedPosts.slice(0, POSTS_PER_PAGE);
+const hasMore = sortedPosts.length > POSTS_PER_PAGE;
+---
+
+<BaseLayout>
+  <div class="posts">
+    {postsToShow.map((post) => {
+      const formattedDate = new Intl.DateTimeFormat('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      }).format(post.data.date);
+
+      // Extract slug from the filename (remove .md extension)
+      const filename = post.id.replace('.md', '');
+      const [year, month, day, ...titleParts] = filename.split('-');
+      const titleSlug = titleParts.join('-');
+
+      // Preserve original URL format: /YYYY/MM/DD/title.html
+      const postUrl = `/${year}/${month}/${day}/${titleSlug}.html`;
+
+      return (
+        <article class="post">
+          <h1 class="post-title">
+            <a href={postUrl}>{post.data.title}</a>
+          </h1>
+          <time class="post-date" datetime={post.data.date.toISOString()}>
+            {formattedDate}
+          </time>
+        </article>
+      );
+    })}
+  </div>
+
+  <div class="pagination">
+    <span class="pagination-item disabled">Older</span>
+    {hasMore ? (
+      <a class="pagination-item" href="/page2">Newer</a>
+    ) : (
+      <span class="pagination-item disabled">Newer</span>
+    )}
+  </div>
+</BaseLayout>
