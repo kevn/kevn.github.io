@@ -5,7 +5,7 @@ date: 2007-08-01T00:00:00-08:00
 
 <p>You might be wondering what I've been up to since leaving my job several months ago. I made a movie to explain, in a series of pictures, what my day-to-day life of the last four months has entailed.</p>
 <p>
-<iframe width="560" height="315" src="http://www.youtube.com/embed/LpqaN_N7w7I" frameborder="0"> </iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/LpqaN_N7w7I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
 </p>
 <p>After countless hours of designing, coding, modeling, learning, networking, drawing, hacking, zipping, unzipping, scanning, testing, documenting, administrating, photoshopping, rewriting, tuning, fixing and launching, I have finally resurfaced with something I am really proud of.</p>
 <p><strong>I'm really excited to announce the opening of <a href="http://dibs.net">dibs.net</a>, a local community online bulletin board for buying and selling stuff.</strong> (To check it out now, see what I'm selling on my personal site: http://kevin.dibs.net or read the "About" page: http://dibs.net/about).</p>
