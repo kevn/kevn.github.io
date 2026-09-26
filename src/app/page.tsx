@@ -6,15 +6,17 @@ import { GoogieCard } from '@/components/googie-card'
 import { ProjectCard } from '@/components/project-card'
 import { Crt } from '@/components/crt'
 import { getPosts, homeDispatches } from '@/lib/posts'
-import { PROJECTS, projectHref } from '@/data/projects'
+import { PROJECTS } from '@/data/projects'
+import { WORKBENCH, homeShelf } from '@/data/workbench'
+import { WorkbenchCard } from '@/components/workbench-card'
+import Link from 'next/link'
 
 export const metadata = pageMetadata({ description: site.description, path: '/' })
 
 const ACCENTS = ['#ff4fd8', '#3ff0ff', '#8bff6b']
 
 export default function Home() {
-  const posts = getPosts()
-  const dispatches = homeDispatches(posts)
+  const dispatches = homeDispatches(getPosts())
   return (
     <main className="relative -mt-24 overflow-hidden bg-[radial-gradient(ellipse_at_70%_0%,#1d1a4a_0%,#0c0b1c_55%)] pt-24">
       <Crt intensity="full" />
@@ -35,9 +37,22 @@ export default function Home() {
         <h2 id="building" className="font-display text-3xl md:text-4xl">
           What I&apos;m building
         </h2>
-        <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+        <div className="mt-14 grid gap-10 md:grid-cols-2 md:gap-5">
           {PROJECTS.map(p => (
-            <ProjectCard key={p.slug} project={p} href={projectHref(p, posts)} />
+            <ProjectCard key={p.slug} project={p} />
+          ))}
+        </div>
+        <div className="mt-16 flex flex-wrap items-baseline justify-between gap-4">
+          <h3 className="font-display text-2xl">
+            On the workbench
+          </h3>
+          <Link href="/side" className="font-label text-sm tracking-[.14em] text-cyan hover:text-magenta">
+            EVERYTHING ON THE BENCH →
+          </Link>
+        </div>
+        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {homeShelf(WORKBENCH).map(item => (
+            <WorkbenchCard key={item.slug} item={item} />
           ))}
         </div>
       </section>

@@ -21,7 +21,8 @@ it('footer offers email', () => {
   expect(screen.getByRole('link', { name: /hi@kev\.in/ })).toHaveAttribute('href', 'mailto:hi@kev.in')
 })
 
-it('lists the four headline projects with real links', () => {
-  expect(PROJECTS.map(p => p.slug)).toEqual(['deep-fathom', 'rival-bear', 'fpv', 'terrain'])
-  PROJECTS.forEach(p => expect(p.href).toMatch(/^(https:\/\/|\/)/))
+it('features exactly Deep Fathom and Rival Bear, with real links', () => {
+  expect(PROJECTS.map(p => p.slug)).toEqual(['deep-fathom', 'rival-bear'])
+  PROJECTS.forEach(p => expect(p.href).toMatch(/^https:\/\//))
+  expect(PROJECTS[1].role).toBe('Side studio')
 })

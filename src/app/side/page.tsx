@@ -1,35 +1,34 @@
 import type { Metadata } from 'next'
 import { PageHero } from '@/components/page-hero'
 import { ProjectCard } from '@/components/project-card'
-import { PROJECTS, projectHref } from '@/data/projects'
-import { getPosts } from '@/lib/posts'
+import { WorkbenchCard } from '@/components/workbench-card'
+import { PROJECTS } from '@/data/projects'
+import { WORKBENCH, shelf } from '@/data/workbench'
 import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = pageMetadata({ title: 'Side', description: 'What Kevin Hunt is building: Deep Fathom, Rival Bear, and the experiments in between.', path: '/side' })
+export const metadata: Metadata = pageMetadata({
+  title: 'Side',
+  description: 'What Kevin Hunt is building: Deep Fathom, Rival Bear, and the personal projects on the workbench — then and now.',
+  path: '/side',
+})
 
 export default function Side() {
-  const studio = PROJECTS.find(p => p.slug === 'rival-bear')?.children ?? []
-  const posts = getPosts()
   return (
     <main>
       <PageHero kicker="KEV.IN/SIDE" title="What I'm building" />
       <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-16">
-        <div className="mt-6 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+        <div className="mt-6 grid gap-10 md:grid-cols-2 md:gap-5">
           {PROJECTS.map(p => (
-            <ProjectCard key={p.slug} project={p} href={projectHref(p, posts)} />
+            <ProjectCard key={p.slug} project={p} />
           ))}
         </div>
-        <h2 className="mt-24 font-display text-3xl">From the Rival Bear studio</h2>
-        <ul className="mt-8 grid gap-4 md:grid-cols-3">
-          {studio.map(c => (
-            <li key={c.name}>
-              <a href={c.href} target="_blank" rel="noopener" className="block h-full rounded-[40px_12px_40px_12px] border border-magenta/40 p-7 transition-colors hover:border-magenta">
-                <span className="font-display text-xl">{c.name}</span>
-                <span className="mt-2 block text-muted">{c.blurb}</span>
-              </a>
-            </li>
+        <h2 className="mt-24 font-display text-3xl">On the workbench</h2>
+        <p className="mt-3 max-w-2xl text-lg text-muted">Personal projects, then and now: what&apos;s in flight, what&apos;s on the bench, and what&apos;s been mothballed.</p>
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {shelf(WORKBENCH).map(item => (
+            <WorkbenchCard key={item.slug} item={item} />
           ))}
-        </ul>
+        </div>
       </div>
     </main>
   )

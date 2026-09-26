@@ -43,3 +43,11 @@ it('never bakes the build date into NOW on the server', () => {
   expect(html).not.toContain('SEP!26!2026')
   expect(html).not.toContain('YRS<')
 })
+
+it('pads lit text to the ghost width so short values stay inside the readout', async () => {
+  const { Readout } = await import('./readout')
+  const { container } = render(<Readout label="STATUS" text="LIVE" tone="cyan" ghostFor="ON THE BENCH" />)
+  const [ghost, lit] = [...container.querySelectorAll('span span')].map(s => s.textContent ?? '')
+  expect(lit).toBe('LIVE!!!!!!!!')
+  expect(lit.length).toBe(ghost.length)
+})
