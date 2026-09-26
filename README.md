@@ -36,3 +36,4 @@ Hosted on Vercel (Rival Bear team, project `kev-in`). Use the `vercel-rb` alias,
 - Production: merge to `master`, or run `vercel-rb deploy --prod` from `master`. Never promote a preview build (drafts and `robots.txt` are fixed at build time).
 - Preview: every PR (once the Vercel GitHub app has repo access), or `vercel-rb deploy`.
 - Domain cutover and rollback: see [docs/cutover.md](docs/cutover.md).
+- After publishing a post: `INDEXNOW_SUBMIT=true pnpm indexnow` pings Bing and the other IndexNow engines.

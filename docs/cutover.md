@@ -69,6 +69,15 @@ Then send a test email to your kev.in address from an outside account, and confi
 
 In Google Search Console, submit `https://kev.in/sitemap.xml`. The old `sitemap-index.xml` redirects there.
 
+Then tell the IndexNow engines (Bing, Yandex, Seznam, Naver) about every page:
+
+```bash
+pnpm indexnow                        # dry run: lists what would be sent
+INDEXNOW_SUBMIT=true pnpm indexnow   # submit; re-run after publishing new posts
+```
+
+It relies on the key file `public/6d6ec6af86c7e94ca82dd5b0af1ff940.txt` being live at `https://kev.in/6d6ec6af86c7e94ca82dd5b0af1ff940.txt`. Also add kev.in in Bing Webmaster Tools; it can import the site from Search Console.
+
 ## 6. Retire GitHub Pages and rename the repo
 
 ```bash
