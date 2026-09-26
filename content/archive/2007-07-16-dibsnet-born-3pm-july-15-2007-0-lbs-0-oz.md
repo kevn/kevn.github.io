@@ -1,6 +1,6 @@
 ---
 title: "! 'dibs.net: Born 3pm July 15, 2007; 0 lbs 0 oz'"
-date: 2007-07-16T00:00:00-08:00
+date: "2007-07-16T00:00:00-08:00"
 categories:
   - "Coding"
   - "Internet"

@@ -1,6 +1,6 @@
 ---
 title: "! 'Thanksgiving: Thanks for Radio Lab'"
-date: 2007-11-26T00:00:00-08:00
+date: "2007-11-26T00:00:00-08:00"
 categories:
   - "Internet"
 ---

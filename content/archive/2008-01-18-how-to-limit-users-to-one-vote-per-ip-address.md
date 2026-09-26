@@ -1,6 +1,6 @@
 ---
 title: "How to limit users to one vote per IP address"
-date: 2008-01-18T00:00:00-08:00
+date: "2008-01-18T00:00:00-08:00"
 categories:
   - "Controllers"
   - "Models"

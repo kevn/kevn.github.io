@@ -1,6 +1,6 @@
 ---
 title: "How to obtain the IP address of the current user"
-date: 2007-08-26T00:00:00-08:00
+date: "2007-08-26T00:00:00-08:00"
 categories:
   - "Controllers"
 ---

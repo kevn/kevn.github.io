@@ -1,6 +1,6 @@
 ---
 title: "Ruby, Rails and hash's with_indifferent_access"
-date: 2007-11-30T00:00:00-08:00
+date: "2007-11-30T00:00:00-08:00"
 categories:
   - "Ruby"
 ---

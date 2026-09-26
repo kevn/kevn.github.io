@@ -1,6 +1,6 @@
 ---
 title: "Restoring Rails session data when cookies aren't available"
-date: 2007-08-30T00:00:00-08:00
+date: "2007-08-30T00:00:00-08:00"
 categories:
   - "Controllers"
   - "Filters"

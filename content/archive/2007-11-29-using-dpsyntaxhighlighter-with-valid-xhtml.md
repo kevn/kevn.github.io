@@ -1,6 +1,6 @@
 ---
 title: "Using dp.SyntaxHighlighter with Valid XHTML"
-date: 2007-11-29T00:00:00-08:00
+date: "2007-11-29T00:00:00-08:00"
 categories:
   - "Coding"
   - "Internet"

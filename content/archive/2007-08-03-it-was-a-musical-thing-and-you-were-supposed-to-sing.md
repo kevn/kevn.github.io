@@ -1,6 +1,6 @@
 ---
 title: "It was a musical thing and you were supposed to sing"
-date: 2007-08-03T00:00:00-08:00
+date: "2007-08-03T00:00:00-08:00"
 categories:
   - "Uncategorized"
 ---
