@@ -3,6 +3,9 @@ import { site } from './site'
 
 const FEED = { 'application/rss+xml': [{ url: '/feed.xml', title: site.name }] }
 
+/** Where a page's Markdown twin lives. */
+export const markdownPath = (path: string) => (path === '/' ? '/index.md' : `${path}.md`)
+
 /**
  * Per-page metadata. Next replaces (not merges) `alternates` and `openGraph`
  * between layout and page, so every page gets the full set here: its own
@@ -22,7 +25,7 @@ export function pageMetadata({
   return {
     ...(title ? { title } : {}),
     description,
-    alternates: { canonical: path, types: FEED },
+    alternates: { canonical: path, types: { ...FEED, 'text/markdown': markdownPath(path) } },
     openGraph: {
       siteName: site.name,
       locale: 'en_US',

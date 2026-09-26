@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Wordmark } from './wordmark'
 import { Sparkle, Starburst } from './ornaments'
 import { AtomicClock } from './atomic-clock'
+import { HERO_BIO } from '@/data/bio'
 
 export function HomeHero() {
   return (
@@ -17,8 +18,8 @@ export function HomeHero() {
       <h1 className="rise mt-3 [animation-delay:.1s]">
         <Wordmark size={210} label="kev.in" className="h-auto w-full max-w-[830px]" />
       </h1>
-      <p className="rise mt-7 max-w-[720px] text-xl leading-relaxed text-[#d9d3ec] [animation-delay:.25s] md:text-2xl">
-        Kevin Hunt. CTO of Deep Fathom. On the side I make small, useful apps at Rival Bear. I&apos;ve been shipping software since dialup, and now I&apos;m writing about agents, leadership and flying machines.
+      <p id="hero-bio" className="rise mt-7 max-w-[720px] text-xl leading-relaxed text-[#d9d3ec] [animation-delay:.25s] md:text-2xl">
+        {HERO_BIO}
       </p>
       <div className="rise mt-9 flex flex-wrap gap-3.5 [animation-delay:.4s]">
         <Link href="/writing" className="rounded-full bg-cyan px-8 py-4 text-lg font-semibold text-ink shadow-[0_0_30px_rgb(63_240_255/.45)] transition-transform hover:scale-105">

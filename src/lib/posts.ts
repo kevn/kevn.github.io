@@ -19,6 +19,8 @@ export interface Post {
   body: string
   /** MDX posts: static HTML of the body for feeds. */
   feedHtml?: string
+  /** MDX posts: the raw Markdown/MDX source, for Markdown twins and llms-full.txt. */
+  source?: string
 }
 
 export const KIND_LABEL: Record<PostKind, string> = {
@@ -72,6 +74,7 @@ function fromVelite(): Post[] {
       format: 'mdx',
       body: e.code,
       feedHtml: e.feedHtml,
+      source: e.raw,
     }
   })
   const old: Post[] = archive.map(e => {

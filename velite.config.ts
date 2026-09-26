@@ -19,6 +19,7 @@ const writing = defineCollection({
     path: s.path(),
     excerpt: s.excerpt({ length: 200 }),
     code: s.mdx(),
+    raw: s.raw(),
     // Static HTML of the same body for the RSS feed (JSX components render as plain markdown).
     feedHtml: s.markdown({ copyLinkedFiles: false }),
   }),
@@ -40,7 +41,7 @@ const archive = defineCollection({
 const pages = defineCollection({
   name: 'PageEntry',
   pattern: 'pages/*.mdx',
-  schema: s.object({ title: s.string(), updated: isoDate(), path: s.path(), code: s.mdx() }),
+  schema: s.object({ title: s.string(), updated: isoDate(), path: s.path(), code: s.mdx(), raw: s.raw() }),
 })
 
 export default defineConfig({
