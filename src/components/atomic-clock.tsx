@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useRef, useState, type CSSProperties } from 'react'
 import { clockFractions, clockText, electronPoint, orbitHalves, bayAreaTime, tickPulse, type Hands, type Orbit } from '@/lib/atomic-clock'
-import { Readout } from './readout'
+import { CircuitRow, type CircuitTone } from './circuits'
 
 type Hand = keyof Hands
 const ORBITS: (Orbit & { hand: Hand; color: string; r: number })[] = [
@@ -11,6 +11,9 @@ const ORBITS: (Orbit & { hand: Hand; color: string; r: number })[] = [
 ]
 /** Server render and first paint: the classic watch-ad pose, 10:10:30. */
 const POSE = clockFractions(new Date(2000, 0, 1, 10, 10, 30))
+/** Digit pairs are coloured like the electron that is that hand: hours, minutes, seconds. */
+const HMS = [2, 2, 2] as const
+const HAND_TONES: CircuitTone[] = ['magenta', 'green', 'cyan']
 const TRAIL: Record<Hand, number> = { s: 16, m: 8, h: 6 }
 const TRAIL_STEP = 0.011
 
@@ -110,14 +113,9 @@ export function AtomicClock({ size, className, layout = 'stack' }: { size: numbe
         </svg>
         </div>
       </div>
-      <div className={`flex flex-col gap-1.5 ${layout === 'row' ? 'items-start' : 'mt-3 items-center'}`}>
-        <Readout label="LOCAL" text={now ? clockText(now) : ''} ghostFor="88:88:88" tone="green" />
-        <Readout label="BAY AREA" text={now ? bayAreaTime(now) : ''} ghostFor="88:88:88" tone="cyan" />
-        <p aria-hidden="true" className="mt-1 flex gap-3 font-label text-[10px] tracking-[.16em] text-muted">
-          <span><span className="text-cyan">●</span> SEC</span>
-          <span><span className="text-green">●</span> MIN</span>
-          <span><span className="text-magenta">●</span> HR</span>
-        </p>
+      <div className={`flex flex-col gap-1.5 ${layout === 'row' ? 'items-start' : 'mt-3 items-center'}`} aria-hidden="true">
+        <CircuitRow row="local" caption="LOCAL" captionMuted values={now ? clockText(now).split(':') : null} cols={HMS} tones={HAND_TONES} tone="cyan" />
+        <CircuitRow row="bay-area" caption="BAY AREA" captionMuted values={now ? bayAreaTime(now).split(':') : null} cols={HMS} tones={HAND_TONES} tone="cyan" units={['HR', 'MIN', 'SEC']} />
       </div>
     </div>
   )
