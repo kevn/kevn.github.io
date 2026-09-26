@@ -16,7 +16,8 @@
     "pretest": "velite",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "wordmark": "node scripts/build-wordmark.mjs"
+    "wordmark": "node scripts/build-wordmark.mjs",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
