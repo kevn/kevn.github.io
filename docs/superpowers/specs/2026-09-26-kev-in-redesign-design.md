@@ -254,7 +254,7 @@ velite.config.ts, next.config.ts
 
 - **Lighthouse (mobile) on home and one post:** Performance ≥ 90, Accessibility ≥ 95, Best Practices ≥ 95, SEO = 100.
 - **Core Web Vitals:** LCP < 2.0s, CLS < 0.05.
-- **Client JavaScript on the home page:** < 90 KB gzipped, excluding Vercel analytics. Only `<TimeStamp>`'s NOW/ELAPSED parts and analytics are client components.
+- **Client JavaScript:** kev.in's own client code on the home page < 30 KB gzipped. The React + Next.js App Router runtime (~150 KB gzipped) and Vercel analytics are excluded as a fixed framework baseline; Lighthouse Performance is the governing budget. *(Revised during implementation: the original 90 KB total was below the framework's own floor.)*
 
 ## 11. Out of scope for v1
 
