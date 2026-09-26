@@ -20,7 +20,7 @@ export function pageMetadata({
   title?: string
   description: string
   path: string
-  article?: { publishedTime: string }
+  article?: { publishedTime: string; modifiedTime?: string; tags?: string[] }
 }): Metadata {
   return {
     ...(title ? { title } : {}),
@@ -32,7 +32,9 @@ export function pageMetadata({
       url: path,
       ...(title ? { title } : {}),
       description,
-      ...(article ? { type: 'article', publishedTime: article.publishedTime } : { type: 'website' }),
+      ...(article
+        ? { type: 'article', publishedTime: article.publishedTime, modifiedTime: article.modifiedTime ?? article.publishedTime, authors: [`${site.url}/about`], tags: article.tags }
+        : { type: 'website' }),
     },
   }
 }

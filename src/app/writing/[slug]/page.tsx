@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = getPost((await params).slug)
   if (!post) return {}
   return {
-    ...pageMetadata({ title: post.title, description: post.summary, path: post.url, article: { publishedTime: post.dateRaw.slice(0, 10) } }),
+    ...pageMetadata({ title: post.title, description: post.summary, path: post.url, article: { publishedTime: post.dateRaw.slice(0, 10), modifiedTime: post.updated ? `${post.updated.y}-${String(post.updated.m).padStart(2, '0')}-${String(post.updated.d).padStart(2, '0')}` : undefined, tags: post.tags } }),
     robots: post.draft ? { index: false } : undefined,
   }
 }

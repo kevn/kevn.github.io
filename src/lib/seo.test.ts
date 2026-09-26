@@ -9,6 +9,6 @@ it('gives every page its own canonical and og:url, plus shared OG and RSS discov
 })
 
 it('supports article metadata for posts', () => {
-  const m = pageMetadata({ title: 'T', description: 'd', path: '/writing/t', article: { publishedTime: '2007-05-17' } })
-  expect(m.openGraph).toMatchObject({ type: 'article', publishedTime: '2007-05-17', url: '/writing/t', siteName: 'kev.in' })
+  const m = pageMetadata({ title: 'T', description: 'd', path: '/writing/t', article: { publishedTime: '2007-05-17', modifiedTime: '2008-01-02', tags: ['rails'] } })
+  expect(m.openGraph).toMatchObject({ type: 'article', publishedTime: '2007-05-17', modifiedTime: '2008-01-02', authors: ['https://kev.in/about'], tags: ['rails'], url: '/writing/t', siteName: 'kev.in' })
 })
