@@ -47,11 +47,13 @@ export function Atom({ size, className }: { size: number; className?: string }) 
     </svg>
   )
   return (
-    <div aria-hidden="true" className={className} style={{ position: 'relative', width: size, height: size }}>
-      {orbit('#3ff0ff', 0, 'orbit')}
-      {orbit('#ff4fd8', 60, 'orbit-rev')}
-      {orbit('#8bff6b', -60, 'orbit', '17s')}
-      <div style={{ position: 'absolute', left: '44%', top: '44%', width: '12%', height: '12%', borderRadius: '50%', background: '#ff6b35', boxShadow: '0 0 40px #ff6b35' }} />
+    <div aria-hidden="true" className={className} style={{ width: size, height: size }}>
+      <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+        {orbit('#3ff0ff', 0, 'orbit')}
+        {orbit('#ff4fd8', 60, 'orbit-rev')}
+        {orbit('#8bff6b', -60, 'orbit', '17s')}
+        <div style={{ position: 'absolute', left: '44%', top: '44%', width: '12%', height: '12%', borderRadius: '50%', background: '#ff6b35', boxShadow: '0 0 40px #ff6b35' }} />
+      </div>
     </div>
   )
 }

@@ -18,3 +18,10 @@ it('draws a 16-ray starburst', () => {
   const { container } = render(<Starburst size={40} color="#ff6b35" />)
   expect(container.querySelectorAll('line')).toHaveLength(16)
 })
+
+it('lets callers position the atom (no inline position overriding their classes)', () => {
+  const { container } = render(<Atom size={200} className="absolute right-4" />)
+  const root = container.firstElementChild as HTMLElement
+  expect(root).toHaveClass('absolute')
+  expect(root.style.position).toBe('')
+})

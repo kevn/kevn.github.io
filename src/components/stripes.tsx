@@ -14,7 +14,7 @@ export function Stripes({ variant, className }: { variant: 'hero-bend' | 'straig
       </svg>
     )
   return (
-    <svg aria-hidden="true" viewBox="0 0 1440 300" fill="none" className={`block h-auto w-full ${className ?? ''}`}>
+    <svg aria-hidden="true" viewBox="0 0 1440 300" fill="none" className={`block h-auto w-full [mask-image:linear-gradient(to_bottom,#000_70%,transparent)] ${className ?? ''}`}>
       {COLORS.map((c, i) => {
         const r = 110 - i * 20
         return <path key={c} className="draw" d={`M-20 ${10 + i * 20} H1250 a${r} ${r} 0 0 1 ${r} ${r} V300`} stroke={c} strokeWidth={12} strokeLinecap="round" style={{ animationDelay: `${i * 0.12}s` }} />
