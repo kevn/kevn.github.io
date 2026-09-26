@@ -17,6 +17,8 @@ export interface Post {
   /** `mdx`: body is Velite-compiled MDX code. `html`: body is HTML. */
   format: 'mdx' | 'html'
   body: string
+  /** MDX posts: static HTML of the body for feeds. */
+  feedHtml?: string
 }
 
 export const KIND_LABEL: Record<PostKind, string> = {
@@ -69,6 +71,7 @@ function fromVelite(): Post[] {
       tags: e.tags,
       format: 'mdx',
       body: e.code,
+      feedHtml: e.feedHtml,
     }
   })
   const old: Post[] = archive.map(e => {

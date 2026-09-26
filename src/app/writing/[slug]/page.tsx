@@ -5,6 +5,7 @@ import { Crt } from '@/components/crt'
 import { MDXContent } from '@/components/mdx-content'
 import { TimeStamp } from '@/components/timestamp'
 import { adjacentPosts, getPost, getPosts, KIND_LABEL } from '@/lib/posts'
+import { pageMetadata } from '@/lib/seo'
 
 export const dynamicParams = false
 
@@ -16,10 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = getPost((await params).slug)
   if (!post) return {}
   return {
-    title: post.title,
-    description: post.summary,
-    alternates: { canonical: post.url },
-    openGraph: { type: 'article', title: post.title, description: post.summary, url: post.url, publishedTime: post.dateRaw },
+    ...pageMetadata({ title: post.title, description: post.summary, path: post.url, article: { publishedTime: post.dateRaw.slice(0, 10) } }),
     robots: post.draft ? { index: false } : undefined,
   }
 }

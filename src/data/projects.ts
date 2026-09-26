@@ -1,9 +1,13 @@
+import type { Post, PostKind } from '@/lib/posts'
+
 export interface Project {
   slug: string
   name: string
   role: string
   blurb: string
   href: string
+  /** Link to this kind of writing once any exists; until then fall back to `href`. */
+  kind?: PostKind
   accent: '#3ff0ff' | '#ff4fd8' | '#8bff6b' | '#7b6cff'
   children?: { name: string; href: string; blurb: string }[]
 }
@@ -35,7 +39,8 @@ export const PROJECTS: Project[] = [
     name: 'FPV & flight',
     role: 'Pilot & builder',
     accent: '#8bff6b',
-    href: '/writing?kind=field-notes',
+    href: '/now',
+    kind: 'field-notes',
     blurb: 'Quads, sims, and an 18 kg octocopter.',
   },
   {
@@ -43,7 +48,12 @@ export const PROJECTS: Project[] = [
     name: 'Maps & terrain',
     role: 'Tinkerer',
     accent: '#7b6cff',
-    href: '/writing?kind=build-log',
+    href: '/now',
+    kind: 'build-log',
     blurb: 'OpenStreetMap to 3D, GIS and Unreal scenes.',
   },
 ]
+
+export function projectHref(project: Project, posts: Post[]): string {
+  return project.kind && posts.some(p => p.kind === project.kind) ? `/writing?kind=${project.kind}` : project.href
+}

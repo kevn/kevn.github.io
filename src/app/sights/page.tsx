@@ -2,12 +2,9 @@ import type { Metadata } from 'next'
 import { readdirSync } from 'node:fs'
 import Image from 'next/image'
 import { PageHero } from '@/components/page-hero'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Sights',
-  description: 'Photographs by Kevin Hunt.',
-  alternates: { canonical: '/sights' },
-}
+export const metadata: Metadata = pageMetadata({ title: 'Sights', description: 'Photographs by Kevin Hunt.', path: '/sights' })
 
 // Drop images into public/sights/ to populate the grid.
 function photos(): string[] {

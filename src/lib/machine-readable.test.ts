@@ -36,3 +36,9 @@ it('keeps CDATA intact when the body contains the terminator', () => {
   const xml = buildRssFeed([post({ body: '<p>a]]>b</p>' })])
   expect(xml).toContain('<![CDATA[<p>a]]]]><![CDATA[>b</p>]]>')
 })
+
+it('carries full content for MDX posts when given a renderer', () => {
+  const mdx = post({ format: 'mdx', body: 'compiled-code', slug: 'new', url: '/writing/new' })
+  const xml = buildRssFeed([mdx], p => `<p>rendered ${p.slug}</p>`)
+  expect(xml).toContain('<content:encoded><![CDATA[<p>rendered new</p>]]></content:encoded>')
+})

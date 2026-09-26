@@ -11,8 +11,6 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: { default: `${site.name} · Kevin Hunt`, template: `%s · ${site.name}` },
   description: site.description,
-  alternates: { canonical: '/', types: { 'application/rss+xml': [{ url: '/feed.xml', title: 'kev.in' }] } },
-  openGraph: { siteName: site.name, type: 'website', url: '/', locale: 'en_US' },
   twitter: { card: 'summary_large_image' },
 }
 

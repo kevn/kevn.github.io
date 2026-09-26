@@ -7,6 +7,7 @@
 .prose-k a { color: #f2ece0; text-decoration: underline; text-decoration-color: #3ff0ff; text-underline-offset: 4px; text-decoration-thickness: 2px }
 .prose-k a:hover { color: #ff4fd8; text-decoration-color: #ff4fd8 }
 .prose-k img { max-width: 100%; height: auto; border-radius: 10px }
+.prose-k iframe, .prose-k embed, .prose-k object { max-width: 100%; height: auto; aspect-ratio: 16 / 9 }
 .prose-k blockquote { border-left: 3px solid #ff4fd8; padding-left: 1em; color: #bdb8d6 }
 .prose-k code { font-family: var(--font-label); font-size: .88em }
 .prose-k :not(pre) > code { background: #1a1834; padding: .1em .35em; border-radius: 4px }

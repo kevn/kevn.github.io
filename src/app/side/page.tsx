@@ -1,23 +1,22 @@
 import type { Metadata } from 'next'
 import { PageHero } from '@/components/page-hero'
 import { ProjectCard } from '@/components/project-card'
-import { PROJECTS } from '@/data/projects'
+import { PROJECTS, projectHref } from '@/data/projects'
+import { getPosts } from '@/lib/posts'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Side',
-  description: 'What Kevin Hunt is building: Deep Fathom, Rival Bear, and the experiments in between.',
-  alternates: { canonical: '/side' },
-}
+export const metadata: Metadata = pageMetadata({ title: 'Side', description: 'What Kevin Hunt is building: Deep Fathom, Rival Bear, and the experiments in between.', path: '/side' })
 
 export default function Side() {
   const studio = PROJECTS.find(p => p.slug === 'rival-bear')?.children ?? []
+  const posts = getPosts()
   return (
     <main>
       <PageHero kicker="KEV.IN/SIDE" title="What I'm building" />
       <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-16">
         <div className="mt-6 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
           {PROJECTS.map(p => (
-            <ProjectCard key={p.slug} project={p} />
+            <ProjectCard key={p.slug} project={p} href={projectHref(p, posts)} />
           ))}
         </div>
         <h2 className="mt-24 font-display text-3xl">From the Rival Bear studio</h2>

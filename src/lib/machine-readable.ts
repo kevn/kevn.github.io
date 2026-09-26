@@ -7,13 +7,14 @@ const published = (posts: Post[]) => posts.filter(p => !p.draft)
 const rfc822 = (p: Post) => new Date(Date.UTC(p.date.y, p.date.m - 1, p.date.d, 12)).toUTCString()
 const abs = (p: Post) => `${site.url}${p.url}`
 
-/** RSS 2.0. Archive (HTML) posts carry full content; MDX posts carry their summary. */
-export function buildRssFeed(posts: Post[]): string {
+/** RSS 2.0 with full content. Archive posts are HTML already; MDX posts need `renderMdx`. */
+export function buildRssFeed(posts: Post[], renderMdx?: (p: Post) => string): string {
+  const html = (p: Post) => (p.format === 'html' ? p.body : renderMdx?.(p))
   const items = published(posts)
     .map(
       p =>
         `<item><title>${esc(p.title)}</title><link>${abs(p)}</link><guid isPermaLink="true">${abs(p)}</guid><pubDate>${rfc822(p)}</pubDate><description>${esc(p.summary)}</description>${
-          p.format === 'html' ? `<content:encoded>${cdata(p.body)}</content:encoded>` : ''
+          html(p) ? `<content:encoded>${cdata(html(p)!)}</content:encoded>` : ''
         }</item>`,
     )
     .join('')

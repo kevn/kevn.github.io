@@ -4,12 +4,9 @@ import { PageHero } from '@/components/page-hero'
 import { MDXContent } from '@/components/mdx-content'
 import { Readout } from '@/components/readout'
 import { calendarDate, formatLong, formatStamp } from '@/lib/dates'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Now',
-  description: 'What Kevin Hunt is up to right now.',
-  alternates: { canonical: '/now' },
-}
+export const metadata: Metadata = pageMetadata({ title: 'Now', description: 'What Kevin Hunt is up to right now.', path: '/now' })
 
 export default function Now() {
   const now = pages.find(p => p.path.endsWith('now'))

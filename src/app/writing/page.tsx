@@ -3,12 +3,9 @@ import Link from 'next/link'
 import { PageHero } from '@/components/page-hero'
 import { GoogieCard } from '@/components/googie-card'
 import { getPosts, KIND_LABEL, type PostKind } from '@/lib/posts'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Writing',
-  description: 'Essays, build logs and field notes by Kevin Hunt, then and now.',
-  alternates: { canonical: '/writing' },
-}
+export const metadata: Metadata = pageMetadata({ title: 'Writing', description: 'Essays, build logs and field notes by Kevin Hunt, then and now.', path: '/writing' })
 
 const ACCENTS = ['#ff4fd8', '#3ff0ff', '#8bff6b', '#7b6cff']
 const KINDS = Object.keys(KIND_LABEL) as PostKind[]

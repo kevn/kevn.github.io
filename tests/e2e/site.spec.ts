@@ -61,7 +61,7 @@ for (const path of ['/', '/writing', '/writing/railsconf-07-day-0', '/now']) {
 
 test('no horizontal scroll at 360px', async ({ page }) => {
   await page.setViewportSize({ width: 360, height: 800 })
-  for (const path of [...PAGES, '/nope']) {
+  for (const path of [...PAGES, '/nope', '/writing/announcing-dibs-net']) {
     await page.goto(path)
     expect(await page.evaluate(() => document.documentElement.scrollWidth), path).toBeLessThanOrEqual(360)
   }
@@ -75,3 +75,24 @@ test('reduced motion stops CSS animation', async ({ browser }) => {
   expect(running).toBe(0)
   await ctx.close()
 })
+
+test('share images 404 (not 500) for unknown posts', async ({ request }) => {
+  const res = await request.get('/writing/nope/opengraph-image')
+  expect(res.status()).toBe(404)
+})
+
+test('inner pages advertise their own og:url and the feed', async ({ page }) => {
+  await page.goto('/now')
+  await expect(page.locator('meta[property="og:url"]')).toHaveAttribute('content', 'https://kev.in/now')
+  await expect(page.locator('link[type="application/rss+xml"]')).toHaveAttribute('href', /\/feed\.xml$/)
+  await page.goto('/writing/railsconf-07-day-0')
+  await expect(page.locator('meta[property="og:site_name"]')).toHaveAttribute('content', 'kev.in')
+})
+
+for (const [from, to] of [['/sitemap-index.xml', '/sitemap.xml'], ['/favicon.ico', '/icon.svg']]) {
+  test(`redirects legacy ${from}`, async ({ request }) => {
+    const res = await request.get(from, { maxRedirects: 0 })
+    expect(res.status()).toBe(308)
+    expect(res.headers()['location']).toBe(to)
+  })
+}

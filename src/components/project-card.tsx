@@ -2,11 +2,11 @@ import { Starburst } from './ornaments'
 import type { Project } from '@/data/projects'
 
 /** Project card with a slanted, glowing "roof" bar and a starburst badge. */
-export function ProjectCard({ project }: { project: Project }) {
-  const external = project.href.startsWith('http')
+export function ProjectCard({ project, href = project.href }: { project: Project; href?: string }) {
+  const external = href.startsWith('http')
   return (
     <a
-      href={project.href}
+      href={href}
       {...(external ? { target: '_blank', rel: 'noopener' } : {})}
       className="relative block rounded-[18px_18px_60px_18px] border border-cream/10 bg-ink-2 px-7 pb-7 pt-11 transition-transform duration-300 hover:-translate-y-1.5"
     >

@@ -1,15 +1,20 @@
 import { HomeHero } from '@/components/home-hero'
+import { pageMetadata } from '@/lib/seo'
+import { site } from '@/lib/site'
 import { Stripes } from '@/components/stripes'
 import { GoogieCard } from '@/components/googie-card'
 import { ProjectCard } from '@/components/project-card'
 import { Crt } from '@/components/crt'
 import { getPosts, homeDispatches } from '@/lib/posts'
-import { PROJECTS } from '@/data/projects'
+import { PROJECTS, projectHref } from '@/data/projects'
+
+export const metadata = pageMetadata({ description: site.description, path: '/' })
 
 const ACCENTS = ['#ff4fd8', '#3ff0ff', '#8bff6b']
 
 export default function Home() {
-  const dispatches = homeDispatches(getPosts())
+  const posts = getPosts()
+  const dispatches = homeDispatches(posts)
   return (
     <main className="relative -mt-24 overflow-hidden bg-[radial-gradient(ellipse_at_70%_0%,#1d1a4a_0%,#0c0b1c_55%)] pt-24">
       <Crt intensity="full" />
@@ -32,7 +37,7 @@ export default function Home() {
         </h2>
         <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
           {PROJECTS.map(p => (
-            <ProjectCard key={p.slug} project={p} />
+            <ProjectCard key={p.slug} project={p} href={projectHref(p, posts)} />
           ))}
         </div>
       </section>

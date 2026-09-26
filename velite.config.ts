@@ -19,6 +19,8 @@ const writing = defineCollection({
     path: s.path(),
     excerpt: s.excerpt({ length: 200 }),
     code: s.mdx(),
+    // Static HTML of the same body for the RSS feed (JSX components render as plain markdown).
+    feedHtml: s.markdown({ copyLinkedFiles: false }),
   }),
 })
 
