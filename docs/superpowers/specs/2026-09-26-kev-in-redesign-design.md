@@ -85,13 +85,13 @@ Content lives in `content/`:
 
 **Archive migration:** the files in `src/content/blog/*.md` move to `content/archive/`. The filename date and slug are kept, and the frontmatter is normalized (`categories` becomes `tags`, `kind: archive`). Bodies stay HTML, rendered through Velite's `s.markdown()` with raw HTML allowed. Images in `public/images/` move with them, and their paths are rewritten if they change.
 
-**Legacy redirects** (all `permanent: true`, which Next.js serves as 308), defined as path patterns in `src/lib/redirects.ts` and returned from `next.config.ts` `redirects()`. The unit tests check the patterns against all 20 archive filenames:
+**Legacy redirects** (all `permanent: true`, which Next.js serves as 308), generated as explicit pairs from the archive filenames by `legacyRedirects()` in `src/lib/redirects.ts` and returned from `next.config.ts` `redirects()`. The unit tests check the patterns against all 20 archive filenames:
 
 | Old path | New path |
 |---|---|
 | `/:year/:month/:day/:slug.html` and the same without `.html` | `/writing/:slug` |
-| `/page:n` | `/writing` |
-| `/tags` and `/tags/:tag` | `/writing` |
+| `/page2`–`/page4` (and `.html` forms) | `/writing` |
+| `/tags`, `/tags.html` and `/tags/:tag*` | `/writing` |
 | `/atom.xml` | `/feed.xml` |
 | `/index.html` | `/` |
 
