@@ -1,8 +1,8 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { formatStamp, todayLocal, type CalendarDate } from '@/lib/dates'
-import { describeElapsed, elapsed, formatElapsed } from '@/lib/elapsed'
-import { Readout } from './readout'
+import { stampParts, todayLocal, type CalendarDate } from '@/lib/dates'
+import { describeElapsed, elapsed, elapsedParts } from '@/lib/elapsed'
+import { CircuitRow } from './circuits'
 
 // Today is read on the client after mount, so statically built pages never
 // freeze the build date into NOW (and hydration never mismatches).
@@ -12,14 +12,16 @@ function useToday() {
   return today
 }
 
-export function LiveNow() {
+export function NowRow() {
   const today = useToday()
-  return <Readout label="NOW" text={today ? formatStamp(today) : ''} ghostFor="MMM DD YYYY" tone="green" />
+  return <CircuitRow row="now" caption="PRESENT TIME" labels={['MONTH', 'DAY', 'YEAR']} values={today ? stampParts(today) : null} tone="green" />
 }
 
-export function LiveElapsed({ from }: { from: CalendarDate }) {
+export function ElapsedRow({ from }: { from: CalendarDate }) {
   const today = useToday()
-  return <Readout label="ELAPSED" text={today ? formatElapsed(elapsed(from, today)) : ''} ghostFor="00 YRS" tone="amber" />
+  const p = today ? elapsedParts(from, today) : null
+  const values = p ? ([String(p.y).padStart(3, '!'), String(p.m).padStart(2, '0'), String(p.d).padStart(2, '0').padStart(4, '!')] as const) : null
+  return <CircuitRow row="elapsed" caption="TIME ELAPSED" labels={['YRS', 'MOS', 'DAYS']} values={values} tone="amber" />
 }
 
 /** Screen-reader sentence: "Written May 17, 2007 — 19 years ago." (the elapsed clause appears after mount). */

@@ -13,7 +13,7 @@ export function SiteFooter() {
       <p className="font-label text-xs leading-7 tracking-[.16em] text-[#9d97b8] md:text-right">
         BAY AREA, CA
         <br />
-        ON THE AIR SINCE 2005
+        © {new Date().getFullYear()} KEVIN HUNT
       </p>
     </footer>
   )

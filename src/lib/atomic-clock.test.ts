@@ -39,3 +39,16 @@ it('formats clock text and Bay Area time', () => {
   expect(clockText(new Date(2026, 8, 26, 9, 5, 7))).toBe('09:05:07')
   expect(bayAreaTime(new Date(Date.UTC(2026, 8, 26, 17, 5, 7)))).toBe('10:05:07')
 })
+
+import { tickPulse } from './atomic-clock'
+
+it('pulses a ring of light out of the nucleus once a second', () => {
+  const start = tickPulse(new Date(2026, 8, 26, 10, 0, 5, 0))
+  const mid = tickPulse(new Date(2026, 8, 26, 10, 0, 5, 500))
+  const end = tickPulse(new Date(2026, 8, 26, 10, 0, 5, 999))
+  expect(start.r).toBeLessThan(mid.r)
+  expect(mid.r).toBeLessThan(end.r)
+  expect(start.opacity).toBeGreaterThan(mid.opacity)
+  expect(end.opacity).toBeLessThan(0.02)
+  expect(tickPulse(new Date(2026, 8, 26, 10, 0, 6, 0))).toEqual(start)
+})

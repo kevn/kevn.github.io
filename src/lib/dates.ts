@@ -18,6 +18,8 @@ export function todayLocal(now: Date = new Date()): CalendarDate {
   return { y: now.getFullYear(), m: now.getMonth() + 1, d: now.getDate() }
 }
 
-export const formatStamp = (c: CalendarDate) => `${MON[c.m - 1]} ${String(c.d).padStart(2, '0')} ${c.y}`
+export const stampParts = (c: CalendarDate): [string, string, string] => [MON[c.m - 1], String(c.d).padStart(2, '0'), String(c.y)]
+
+export const formatStamp = (c: CalendarDate) => stampParts(c).join(' ')
 
 export const formatLong = (c: CalendarDate) => `${MONTH[c.m - 1]} ${c.d}, ${c.y}`

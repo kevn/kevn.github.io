@@ -26,3 +26,17 @@
   .draw { stroke-dashoffset: 0 }
   .rise { opacity: 1; transform: none }
 }
+
+/* Atomic clock: energy flowing along the rings, and a slow 3D tumble. */
+@keyframes k-flow { to { stroke-dashoffset: -240 } }
+@keyframes k-tumble {
+  0%, 100% { transform: perspective(900px) rotateX(10deg) rotateY(-16deg) rotateZ(0deg) }
+  25% { transform: perspective(900px) rotateX(-14deg) rotateY(8deg) rotateZ(4deg) }
+  50% { transform: perspective(900px) rotateX(6deg) rotateY(18deg) rotateZ(-2deg) }
+  75% { transform: perspective(900px) rotateX(16deg) rotateY(-4deg) rotateZ(3deg) }
+}
+.ring-flow { stroke-dasharray: 3 21; animation: k-flow 2.4s linear infinite }
+.tumble { animation: k-tumble 16s ease-in-out infinite; transform-style: preserve-3d }
+@media (prefers-reduced-motion: reduce) {
+  .ring-flow, .tumble { animation: none !important }
+}

@@ -14,7 +14,7 @@ export const PROJECTS: Project[] = [
     role: 'Co-founder & CTO',
     accent: '#3ff0ff',
     href: 'https://www.deepfathom.ai',
-    blurb: 'An AI-native compliance platform for the U.S. Defense Industrial Base.',
+    blurb: 'An AI-native cybersecurity platform for high-stakes environments.',
   },
   {
     slug: 'rival-bear',

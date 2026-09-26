@@ -50,3 +50,10 @@ export const clockText = (d: Date) => `${two(d.getHours())}:${two(d.getMinutes()
 const BAY_AREA = new Intl.DateTimeFormat('en-GB', { timeZone: 'America/Los_Angeles', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })
 
 export const bayAreaTime = (d: Date) => BAY_AREA.format(d)
+
+/** The once-a-second "tick": a ring of light leaving the nucleus, easing out as it fades. */
+export function tickPulse(d: Date): { r: number; opacity: number } {
+  const t = d.getMilliseconds() / 1000
+  const ease = 1 - (1 - t) ** 3
+  return { r: 24 + 130 * ease, opacity: 0.7 * (1 - t) ** 2 }
+}

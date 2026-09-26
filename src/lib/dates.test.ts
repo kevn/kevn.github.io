@@ -18,3 +18,9 @@ it('reads today in local time', () => {
 it('rejects a malformed date', () => {
   expect(() => calendarDate('not a date')).toThrow()
 })
+
+import { stampParts } from './dates'
+
+it('splits a date into MONTH / DAY / YEAR windows', () => {
+  expect(stampParts({ y: 2007, m: 5, d: 7 })).toEqual(['MAY', '07', '2007'])
+})

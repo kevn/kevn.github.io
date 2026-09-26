@@ -31,3 +31,13 @@ it('formats and describes', () => {
   expect(describeElapsed({ value: 0, unit: 'DYS' })).toBe('today')
   expect(describeElapsed({ value: 1, unit: 'DYS' })).toBe('1 day ago')
 })
+
+import { elapsedParts } from './elapsed'
+
+it('breaks elapsed time into years, months and days', () => {
+  expect(elapsedParts(c(2007, 5, 17), c(2026, 9, 26))).toEqual({ y: 19, m: 4, d: 9 })
+  expect(elapsedParts(c(2007, 11, 30), c(2026, 9, 26))).toEqual({ y: 18, m: 9, d: 27 })
+  expect(elapsedParts(c(2026, 9, 26), c(2026, 9, 26))).toEqual({ y: 0, m: 0, d: 0 })
+  expect(elapsedParts(c(2027, 1, 1), c(2026, 9, 26))).toEqual({ y: 0, m: 0, d: 0 })
+  expect(elapsedParts(c(2024, 1, 31), c(2024, 3, 1))).toEqual({ y: 0, m: 1, d: 1 })
+})

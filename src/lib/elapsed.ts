@@ -26,3 +26,15 @@ export function describeElapsed(e: Elapsed): string {
   if (e.value === 0 && e.unit === 'DYS') return 'today'
   return `${e.value} ${WORD[e.unit]}${e.value === 1 ? '' : 's'} ago`
 }
+
+/** Calendar breakdown of elapsed time, like an odometer: years, then months, then days. */
+export function elapsedParts(from: CalendarDate, to: CalendarDate): { y: number; m: number; d: number } {
+  if (dayNumber(to) <= dayNumber(from)) return { y: 0, m: 0, d: 0 }
+  let months = (to.y - from.y) * 12 + (to.m - from.m)
+  if (to.d < from.d) months -= 1
+  const anchor = { y: from.y + Math.floor((from.m - 1 + months) / 12), m: ((from.m - 1 + months) % 12) + 1, d: from.d }
+  // Clamp the anchor day into its month (e.g. Jan 31 + 1 month → Feb 29/28).
+  const lastDay = new Date(Date.UTC(anchor.y, anchor.m, 0)).getUTCDate()
+  const days = dayNumber(to) - dayNumber({ ...anchor, d: Math.min(anchor.d, lastDay) })
+  return { y: Math.floor(months / 12), m: months % 12, d: days }
+}
