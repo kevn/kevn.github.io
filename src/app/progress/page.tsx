@@ -5,6 +5,8 @@ import { WorkbenchCard } from '@/components/workbench-card'
 import { PROJECTS } from '@/data/projects'
 import { WORKBENCH, shelf } from '@/data/workbench'
 import { pageMetadata } from '@/lib/seo'
+import { JsonLd } from '@/components/json-ld'
+import { progressGraph } from '@/lib/page-graphs'
 
 export const metadata: Metadata = pageMetadata({
   title: 'Progress',
@@ -15,6 +17,7 @@ export const metadata: Metadata = pageMetadata({
 export default function Side() {
   return (
     <main>
+      <JsonLd graph={progressGraph()} />
       <PageHero kicker="KEV.IN/PROGRESS" title="What I'm building" />
       <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-16">
         <div className="mt-6 grid gap-10 md:grid-cols-2 md:gap-5">

@@ -6,6 +6,8 @@ import { MDXContent } from '@/components/mdx-content'
 import { TimeStamp } from '@/components/timestamp'
 import { adjacentPosts, getPost, getPosts, KIND_LABEL } from '@/lib/posts'
 import { pageMetadata } from '@/lib/seo'
+import { JsonLd } from '@/components/json-ld'
+import { postGraph } from '@/lib/page-graphs'
 
 export const dynamicParams = false
 
@@ -29,6 +31,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   const { newer, older } = adjacentPosts(slug)
   return (
     <main>
+      <JsonLd graph={postGraph(post)} />
       <header className="relative -mt-24 overflow-hidden border-b border-cream/10 bg-[radial-gradient(ellipse_at_80%_0%,#1d1a4a_0%,#0c0b1c_60%)] pt-24">
         <Crt intensity="soft" />
         <div className="relative mx-auto flex max-w-[1100px] flex-col gap-8 px-5 py-12 md:flex-row md:items-end md:justify-between md:px-10 md:py-16">

@@ -6,14 +6,17 @@ import { MDXContent } from '@/components/mdx-content'
 import { Readout } from '@/components/readout'
 import { TIMELINE, yearText } from '@/data/timeline'
 import { pageMetadata } from '@/lib/seo'
+import { JsonLd } from '@/components/json-ld'
+import { aboutGraph } from '@/lib/page-graphs'
 
-export const metadata: Metadata = pageMetadata({ title: 'About', description: 'Kevin Hunt: CTO of Deep Fathom, maker of small, useful apps at Rival Bear, shipping software since dialup.', path: '/about' })
+export const metadata: Metadata = pageMetadata({ title: 'About Kevin Hunt', description: 'Kevin Hunt: CTO of Deep Fathom, maker of small, useful apps at Rival Bear, shipping software since dialup.', path: '/about' })
 
 export default function About() {
   const about = pages.find(p => p.path.endsWith('about'))
   if (!about) throw new Error('content/pages/about.mdx is missing')
   return (
     <main>
+      <JsonLd graph={aboutGraph(about.updated.slice(0, 10))} />
       <PageHero kicker="KEV.IN/ABOUT" title="About" />
       <div className="mx-auto grid max-w-[1200px] gap-16 px-5 py-14 md:px-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)]">
         <div className="prose-k">

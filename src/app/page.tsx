@@ -1,4 +1,6 @@
 import { HomeHero } from '@/components/home-hero'
+import { JsonLd } from '@/components/json-ld'
+import { homeGraph } from '@/lib/page-graphs'
 import { pageMetadata } from '@/lib/seo'
 import { site } from '@/lib/site'
 import { Stripes } from '@/components/stripes'
@@ -19,6 +21,7 @@ export default function Home() {
   const dispatches = homeDispatches(getPosts())
   return (
     <main className="relative -mt-24 overflow-hidden bg-[radial-gradient(ellipse_at_70%_0%,#1d1a4a_0%,#0c0b1c_55%)] pt-24">
+      <JsonLd graph={homeGraph()} />
       <Crt intensity="full" />
       <HomeHero />
       <Stripes variant="hero-bend" className="mt-14 hidden md:block" />

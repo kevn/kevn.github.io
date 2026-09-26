@@ -4,6 +4,8 @@ import { PageHero } from '@/components/page-hero'
 import { GoogieCard } from '@/components/googie-card'
 import { getPosts, KIND_LABEL, type PostKind } from '@/lib/posts'
 import { pageMetadata } from '@/lib/seo'
+import { JsonLd } from '@/components/json-ld'
+import { writingGraph } from '@/lib/page-graphs'
 
 export const metadata: Metadata = pageMetadata({ title: 'Writing', description: 'Essays, build logs and field notes by Kevin Hunt, then and now.', path: '/writing' })
 
@@ -25,6 +27,7 @@ export default async function WritingIndex({ searchParams }: { searchParams: Pro
   const years = [...new Set(posts.map(p => p.date.y))]
   return (
     <main>
+      <JsonLd graph={writingGraph(getPosts())} />
       <PageHero kicker="DISPATCHES · THEN & NOW" title="Writing">
         <nav aria-label="Filter by kind" className="mt-8 flex flex-wrap gap-2 font-label text-xs tracking-[.14em]">
           <Filter href="/writing" label="ALL" active={!active} />

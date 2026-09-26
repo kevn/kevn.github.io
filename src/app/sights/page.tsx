@@ -3,6 +3,8 @@ import { readdirSync } from 'node:fs'
 import Image from 'next/image'
 import { PageHero } from '@/components/page-hero'
 import { pageMetadata } from '@/lib/seo'
+import { JsonLd } from '@/components/json-ld'
+import { sightsGraph } from '@/lib/page-graphs'
 
 export const metadata: Metadata = pageMetadata({ title: 'Sights', description: 'Photographs by Kevin Hunt.', path: '/sights' })
 
@@ -19,6 +21,7 @@ export default function Sights() {
   const list = photos()
   return (
     <main>
+      <JsonLd graph={sightsGraph()} />
       <PageHero kicker="KEV.IN/SIGHTS" title="Sights" />
       <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-16">
         {list.length > 0 && (
