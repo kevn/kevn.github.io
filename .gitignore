@@ -22,3 +22,6 @@ site/_site/
 coverage
 tmp/stackprof-*
 
+
+# Brainstorming companion scratch
+.superpowers/
