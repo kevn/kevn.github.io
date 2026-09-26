@@ -2,7 +2,7 @@
 // costume: colour-coded rows, one segmented window per field with its unlit
 // "ghost" segments showing, and a small label — no metal housing.
 
-export const LIT = { red: '#ff4a2e', green: '#39ff14', amber: '#ffb000', cyan: '#3ff0ff' } as const
+export const LIT = { red: '#ff6a4d', green: '#39ff14', amber: '#ffb000', cyan: '#3ff0ff' } as const
 export type CircuitTone = keyof typeof LIT
 
 /** Column widths in characters: MONTH / DAY / YEAR. Every row uses the same, so rows line up. */
@@ -24,7 +24,7 @@ export function Window({ text, chars, tone }: { text: string; chars: number; ton
 export function CircuitRow({ row, caption, units, values, tone }: { row: string; caption: string; units?: readonly [string, string, string]; values: readonly [string, string, string] | null; tone: CircuitTone }) {
   return (
     <div data-row={row} className="flex items-center gap-2.5">
-      <span className="w-[62px] font-label text-[10px] tracking-[.16em]" style={{ color: LIT[tone], opacity: 0.85 }}>
+      <span className="w-[62px] font-label text-[10px] tracking-[.16em]" style={{ color: LIT[tone] }}>
         {caption}
       </span>
       <span className="flex items-start gap-1">

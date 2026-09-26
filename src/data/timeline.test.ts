@@ -12,3 +12,8 @@ it('shows dashes for years still to be confirmed', () => {
   expect(yearText(2007)).toBe('2007')
   expect(yearText(null)).toBe('----')
 })
+
+it("keeps the Yammer line to what's on the resume", () => {
+  const yammer = TIMELINE.find(t => t.year === 2010)!
+  expect(yammer.what).toBe('Joined Yammer as an early engineer.')
+})
