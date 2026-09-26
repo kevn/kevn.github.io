@@ -4,9 +4,9 @@ import { site } from '@/lib/site'
 
 const LINKS = [
   ['Writing', '/writing', '#3ff0ff'],
-  ['Side', '/side', '#ff4fd8'],
+  ['Progress', '/progress', '#ff4fd8'],
   ['Sights', '/sights', '#8bff6b'],
-  ['Now', '/now', ''],
+  ['About', '/about', ''],
 ] as const
 
 export function SiteNav() {

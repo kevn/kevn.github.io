@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test'
 import AxeBuilder from '@axe-core/playwright'
 
-const PAGES = ['/', '/writing', '/writing/railsconf-07-day-0', '/side', '/sights', '/now']
+const PAGES = ['/', '/writing', '/writing/railsconf-07-day-0', '/progress', '/sights', '/about']
 
 // Vercel analytics scripts 404 outside Vercel; those errors aren't ours.
 const ours = (errors: string[]) => errors.filter(e => !/_vercel|insights|speed-insights|Web Analytics/i.test(e))
@@ -49,7 +49,7 @@ test('feed is RSS', async ({ request }) => {
   expect(await res.text()).toMatch(/^<\?xml/)
 })
 
-for (const path of ['/', '/writing', '/writing/railsconf-07-day-0', '/now']) {
+for (const path of ['/', '/writing', '/writing/railsconf-07-day-0', '/about', '/progress']) {
   test(`${path} has no serious a11y violations`, async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' })
     await page.goto(path)
@@ -82,8 +82,8 @@ test('share images 404 (not 500) for unknown posts', async ({ request }) => {
 })
 
 test('inner pages advertise their own og:url and the feed', async ({ page }) => {
-  await page.goto('/now')
-  await expect(page.locator('meta[property="og:url"]')).toHaveAttribute('content', 'https://kev.in/now')
+  await page.goto('/about')
+  await expect(page.locator('meta[property="og:url"]')).toHaveAttribute('content', 'https://kev.in/about')
   await expect(page.locator('link[type="application/rss+xml"]')).toHaveAttribute('href', /\/feed\.xml$/)
   await page.goto('/writing/railsconf-07-day-0')
   await expect(page.locator('meta[property="og:site_name"]')).toHaveAttribute('content', 'kev.in')

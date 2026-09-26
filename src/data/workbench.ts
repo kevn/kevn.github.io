@@ -20,7 +20,7 @@ export const WORKBENCH: WorkbenchItem[] = [
   { slug: 'machine-mode', name: 'Machine Mode', hook: 'A standard for tools that AI agents can operate safely.', started: 2026, updated: '2026-07', status: 'IN FLIGHT', href: 'https://machinemode.io' },
   { slug: 'osm-to-obj', name: 'osm-to-obj', hook: 'Turns OpenStreetMap around any lat/long into a 3D scene.', started: 2024, updated: '2026-08', status: 'IN FLIGHT' },
   { slug: 'ersatztv-ai', name: 'ErsatzTV AI collections', hook: 'AI-curated TV channels built from my own media library.', started: 2024, updated: '2026-06', status: 'IN FLIGHT' },
-  { slug: 'waterdog', name: 'Waterdog trail map', hook: 'A trail map for a local lake, built from GIS data.', started: 2020, updated: '2026-05', status: 'IN FLIGHT' },
+  { slug: 'waterdog', name: 'Waterdog trail map', hook: 'A trail map for a lake, built from GIS data.', started: 2020, updated: '2026-05', status: 'IN FLIGHT' },
   { slug: 'lllm', name: 'lllm', hook: 'A coding agent that learns from its own traces.', started: 2026, updated: '2026-05', status: 'ON THE BENCH' },
   { slug: 'fenn-chase', name: 'The Fenn chase', hook: "My solve for Forrest Fenn's treasure hunt, written up after the chest was found.", started: 2020, updated: '2020-06', status: 'MOTHBALLED', href: 'https://rivalbear.com/chase' },
   { slug: 'nightswatch', name: 'Nightswatch', hook: 'Round-the-clock monitoring for the homelab.', started: 2024, updated: '2026-06', status: 'MOTHBALLED' },

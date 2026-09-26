@@ -24,7 +24,7 @@ export function HomeHero() {
         <Link href="/writing" className="rounded-full bg-cyan px-8 py-4 text-lg font-semibold text-ink shadow-[0_0_30px_rgb(63_240_255/.45)] transition-transform hover:scale-105">
           Read the dispatches →
         </Link>
-        <Link href="/side" className="rounded-full border-[1.5px] border-cream px-8 py-4 text-lg font-semibold transition-transform hover:scale-105">
+        <Link href="/progress" className="rounded-full border-[1.5px] border-cream px-8 py-4 text-lg font-semibold transition-transform hover:scale-105">
           What I&apos;m building
         </Link>
       </div>

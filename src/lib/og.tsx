@@ -20,7 +20,7 @@ export async function ogImage({ kicker, title, stamp }: { kicker: string; title:
         </div>
         <div style={{ display: 'flex', fontSize: title.length > 60 ? 46 : 58, lineHeight: 1.2, maxWidth: 1040 }}>{title}</div>
         <div style={{ display: 'flex', gap: 24, fontSize: 22, color: '#ff4fd8', letterSpacing: 2 }}>
-          <span>{stamp ? `WRITTEN ${stamp}` : 'KEVIN HUNT · SIERRA NEVADA'}</span>
+          <span>{stamp ? `WRITTEN ${stamp}` : 'KEVIN HUNT · BAY AREA'}</span>
           <span style={{ color: '#8bff6b' }}>KEV.IN</span>
         </div>
       </div>

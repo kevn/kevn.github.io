@@ -7,15 +7,15 @@ import { WORKBENCH, shelf } from '@/data/workbench'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Side',
+  title: 'Progress',
   description: 'What Kevin Hunt is building: Deep Fathom, Rival Bear, and the personal projects on the workbench — then and now.',
-  path: '/side',
+  path: '/progress',
 })
 
 export default function Side() {
   return (
     <main>
-      <PageHero kicker="KEV.IN/SIDE" title="What I'm building" />
+      <PageHero kicker="KEV.IN/PROGRESS" title="What I'm building" />
       <div className="mx-auto max-w-[1440px] px-5 py-16 md:px-16">
         <div className="mt-6 grid gap-10 md:grid-cols-2 md:gap-5">
           {PROJECTS.map(p => (

@@ -7,9 +7,9 @@ it('nav links to every section, home and email', () => {
   render(<SiteNav />)
   for (const [name, href] of [
     ['Writing', '/writing'],
-    ['Side', '/side'],
+    ['Progress', '/progress'],
     ['Sights', '/sights'],
-    ['Now', '/now'],
+    ['About', '/about'],
   ])
     expect(screen.getByRole('link', { name })).toHaveAttribute('href', href)
   expect(screen.getByRole('link', { name: /hi@kev\.in/ })).toHaveAttribute('href', 'mailto:hi@kev.in')

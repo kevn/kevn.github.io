@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useRef, useState, type CSSProperties } from 'react'
-import { clockFractions, clockText, electronPoint, orbitHalves, sierraTime, type Hands, type Orbit } from '@/lib/atomic-clock'
+import { clockFractions, clockText, electronPoint, orbitHalves, bayAreaTime, type Hands, type Orbit } from '@/lib/atomic-clock'
 import { Readout } from './readout'
 
 type Hand = keyof Hands
@@ -100,7 +100,7 @@ export function AtomicClock({ size, className, layout = 'stack' }: { size: numbe
       </div>
       <div className={`flex flex-col gap-1.5 ${layout === 'row' ? 'items-start' : 'mt-3 items-center'}`}>
         <Readout label="LOCAL" text={now ? clockText(now) : ''} ghostFor="88:88:88" tone="green" />
-        <Readout label="SIERRA" text={now ? sierraTime(now) : ''} ghostFor="88:88:88" tone="cyan" />
+        <Readout label="BAY AREA" text={now ? bayAreaTime(now) : ''} ghostFor="88:88:88" tone="cyan" />
         <p aria-hidden="true" className="mt-1 flex gap-3 font-label text-[10px] tracking-[.16em] text-muted">
           <span><span className="text-cyan">●</span> SEC</span>
           <span><span className="text-green">●</span> MIN</span>

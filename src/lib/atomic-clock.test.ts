@@ -1,4 +1,4 @@
-import { clockFractions, electronPoint, orbitHalves, sierraTime, clockText } from './atomic-clock'
+import { clockFractions, electronPoint, orbitHalves, bayAreaTime, clockText } from './atomic-clock'
 
 const close = (a: number, b: number) => expect(Math.abs(a - b)).toBeLessThan(1e-9)
 
@@ -35,7 +35,7 @@ it('splits an orbit into a back (far) arc and a front (near) arc', () => {
   expect(front).toBe('M 100 0 A 100 30 0 0 1 -100 0')
 })
 
-it('formats clock text and Sierra Nevada time', () => {
+it('formats clock text and Bay Area time', () => {
   expect(clockText(new Date(2026, 8, 26, 9, 5, 7))).toBe('09:05:07')
-  expect(sierraTime(new Date(Date.UTC(2026, 8, 26, 17, 5, 7)))).toBe('10:05:07')
+  expect(bayAreaTime(new Date(Date.UTC(2026, 8, 26, 17, 5, 7)))).toBe('10:05:07')
 })

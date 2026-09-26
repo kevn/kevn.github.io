@@ -26,6 +26,8 @@ export const STATIC_REDIRECTS: Redirect[] = [
   ...toWriting.map(source => ({ source, destination: '/writing', permanent: true as const })),
   { source: '/atom.xml', destination: '/feed.xml', permanent: true },
   { source: '/index.html', destination: '/', permanent: true },
+  { source: '/side', destination: '/progress', permanent: true },
+  { source: '/now', destination: '/about', permanent: true },
   { source: '/sitemap-index.xml', destination: '/sitemap.xml', permanent: true },
   { source: '/sitemap-0.xml', destination: '/sitemap.xml', permanent: true },
   { source: '/favicon.ico', destination: '/icon.svg', permanent: true },

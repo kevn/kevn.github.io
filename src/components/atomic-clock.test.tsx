@@ -9,11 +9,11 @@ it('never bakes the build time into the server render', () => {
   vi.setSystemTime(new Date(2026, 8, 26, 15, 42, 17))
   const html = renderToString(<AtomicClock size={200} />)
   expect(html).toContain('LOCAL')
-  expect(html).toContain('SIERRA')
+  expect(html).toContain('BAY AREA')
   expect(html).not.toContain('15:42:17')
 })
 
-it('shows local and Sierra Nevada time once mounted', async () => {
+it('shows local and Bay Area time once mounted', async () => {
   vi.useFakeTimers({ toFake: ['Date', 'requestAnimationFrame', 'cancelAnimationFrame', 'setInterval', 'clearInterval'] })
   vi.setSystemTime(new Date(Date.UTC(2026, 8, 26, 17, 5, 7)))
   const { container } = render(<AtomicClock size={200} />)

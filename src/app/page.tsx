@@ -46,7 +46,7 @@ export default function Home() {
           <h3 className="font-display text-2xl">
             On the workbench
           </h3>
-          <Link href="/side" className="font-label text-sm tracking-[.14em] text-cyan hover:text-magenta">
+          <Link href="/progress" className="font-label text-sm tracking-[.14em] text-cyan hover:text-magenta">
             EVERYTHING ON THE BENCH →
           </Link>
         </div>

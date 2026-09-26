@@ -20,6 +20,12 @@ it('ignores non-dated filenames', () => {
   expect(legacyRedirects(['README.md'])).toEqual([])
 })
 
+it('moves /side and /now to their new homes', () => {
+  const map = Object.fromEntries(STATIC_REDIRECTS.map(r => [r.source, r.destination]))
+  expect(map['/side']).toBe('/progress')
+  expect(map['/now']).toBe('/about')
+})
+
 it('sends the old sitemap and icon URLs somewhere real', () => {
   const map = Object.fromEntries(STATIC_REDIRECTS.map(r => [r.source, r.destination]))
   expect(map['/sitemap-index.xml']).toBe('/sitemap.xml')

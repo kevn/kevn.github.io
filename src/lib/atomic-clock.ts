@@ -47,6 +47,6 @@ const two = (n: number) => String(n).padStart(2, '0')
 
 export const clockText = (d: Date) => `${two(d.getHours())}:${two(d.getMinutes())}:${two(d.getSeconds())}`
 
-const SIERRA = new Intl.DateTimeFormat('en-GB', { timeZone: 'America/Los_Angeles', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })
+const BAY_AREA = new Intl.DateTimeFormat('en-GB', { timeZone: 'America/Los_Angeles', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })
 
-export const sierraTime = (d: Date) => SIERRA.format(d)
+export const bayAreaTime = (d: Date) => BAY_AREA.format(d)

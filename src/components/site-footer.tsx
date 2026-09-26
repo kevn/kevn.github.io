@@ -11,7 +11,7 @@ export function SiteFooter() {
         </a>
       </div>
       <p className="font-label text-xs leading-7 tracking-[.16em] text-[#9d97b8] md:text-right">
-        SIERRA NEVADA, CA
+        BAY AREA, CA
         <br />
         ON THE AIR SINCE 2005
       </p>
