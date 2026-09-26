@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import '../styles/effects.css';
+@import '../styles/prose.css';
 
 @theme {
   --color-ink: #0c0b1c;
