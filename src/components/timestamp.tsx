@@ -9,8 +9,8 @@ export function TimeStamp({ written, updated, draft }: { written: CalendarDate; 
   return (
     <div className="shrink-0">
       <Panel>
-        <CircuitRow row="written" caption={draft ? 'DRAFT' : 'WRITTEN'} labels={['MONTH', 'DAY', 'YEAR']} values={stampParts(written)} tone="red" />
-        {updated && <CircuitRow row="updated" caption="UPDATED" labels={['MONTH', 'DAY', 'YEAR']} values={stampParts(updated)} tone="cyan" />}
+        <CircuitRow row="written" caption={draft ? 'DRAFT' : 'WRITTEN'} values={stampParts(written)} tone="red" />
+        {updated && <CircuitRow row="updated" caption="UPDATED" values={stampParts(updated)} tone="cyan" />}
         <NowRow />
         {!draft && <ElapsedRow from={written} />}
       </Panel>

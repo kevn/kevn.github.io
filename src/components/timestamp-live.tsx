@@ -14,14 +14,14 @@ function useToday() {
 
 export function NowRow() {
   const today = useToday()
-  return <CircuitRow row="now" caption="PRESENT TIME" labels={['MONTH', 'DAY', 'YEAR']} values={today ? stampParts(today) : null} tone="green" />
+  return <CircuitRow row="now" caption="NOW" values={today ? stampParts(today) : null} tone="green" />
 }
 
 export function ElapsedRow({ from }: { from: CalendarDate }) {
   const today = useToday()
   const p = today ? elapsedParts(from, today) : null
   const values = p ? ([String(p.y).padStart(3, '!'), String(p.m).padStart(2, '0'), String(p.d).padStart(2, '0').padStart(4, '!')] as const) : null
-  return <CircuitRow row="elapsed" caption="TIME ELAPSED" labels={['YRS', 'MOS', 'DAYS']} values={values} tone="amber" />
+  return <CircuitRow row="elapsed" caption="ELAPSED" units={['YRS', 'MOS', 'DAYS']} values={values} tone="amber" />
 }
 
 /** Screen-reader sentence: "Written May 17, 2007 — 19 years ago." (the elapsed clause appears after mount). */
