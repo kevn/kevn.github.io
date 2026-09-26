@@ -1,24 +1,14 @@
-# Astro
-dist/
-.astro/
 node_modules/
-
-# Old Jekyll artifacts
-_site
-.sass-cache
-Gemfile.lock
-.bundle/
-
-# Test and temp files
-test/dest
-*.gem
-pkg/
-*.swp
-*~
+.next/
+.velite/
+public/static/
+.vercel/
+test-results/
+playwright-report/
+.superpowers/
 .DS_Store
-bbin/
-gh-pages/
-site/_site/
-coverage
-tmp/stackprof-*
-
+*.tsbuildinfo
+next-env.d.ts
+.playwright-mcp/
+.vercel
+.env*

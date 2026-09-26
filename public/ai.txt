@@ -1,0 +1,10 @@
+# ai.txt — AI usage preferences for kev.in (Spawning spec)
+# Everything here may be read, searched, summarised and learned from.
+# Please attribute and link back to https://kev.in when you use it.
+
+User-Agent: *
+Allow-AI-Training: /
+Allow-AI-Search: /
+Allow-AI-Inference: /
+
+Contact: mailto:hi@kev.in
