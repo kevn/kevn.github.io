@@ -17,7 +17,7 @@ export function HomeHero() {
         <Wordmark size={210} label="kev.in" className="h-auto w-full max-w-[830px]" />
       </h1>
       <p className="rise mt-7 max-w-[720px] text-xl leading-relaxed text-[#d9d3ec] [animation-delay:.25s] md:text-2xl">
-        Kevin Hunt. CTO of Deep Fathom, founder of Rival Bear, engineer #6 at Yammer. Shipping software since dialup, and writing about agents, leadership and flying machines.
+        Kevin Hunt. CTO of Deep Fathom, founder of Rival Bear. I&apos;ve been shipping software since dialup, and now I&apos;m writing about agents, leadership and flying machines.
       </p>
       <div className="rise mt-9 flex flex-wrap gap-3.5 [animation-delay:.4s]">
         <Link href="/writing" className="rounded-full bg-cyan px-8 py-4 text-lg font-semibold text-ink shadow-[0_0_30px_rgb(63_240_255/.45)] transition-transform hover:scale-105">
