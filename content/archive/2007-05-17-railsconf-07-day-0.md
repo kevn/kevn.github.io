@@ -1,5 +1,5 @@
 ---
-title: "! 'RailsConf ''07: Day 0'"
+title: "RailsConf '07: Day 0"
 date: "2007-05-17T00:00:00-08:00"
 categories:
   - "Coding"

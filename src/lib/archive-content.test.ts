@@ -15,3 +15,10 @@ it('keeps the calendar date regardless of timezone', () => {
   const first = getPosts().find(p => p.slug === 'one-of-these-days')!
   expect(first.date).toEqual({ y: 2007, m: 2, d: 6 })
 })
+
+it('has clean titles, without leftover YAML tag or quote escaping', () => {
+  for (const a of archive) {
+    expect(a.title).not.toMatch(/^! '|''/)
+  }
+  expect(archive.map(a => a.title)).toContain("RailsConf '07: Day 0")
+})
