@@ -38,3 +38,10 @@ it('fills the home dispatches with new writing first, then archive', () => {
 it('rejects duplicate slugs across collections', () => {
   expect(() => assertUniqueSlugs([p('x', '2007-01-01', 'archive'), p('x', '2026-01-01')])).toThrow(/x/)
 })
+
+it('pads a too-short archive description with context, keeping it under 160', async () => {
+  const { describePost } = await import('./posts')
+  expect(describePost('Short.', 2007)).toBe("Short. From Kevin Hunt's 2007 archive on kev.in.")
+  const long = 'x'.repeat(120)
+  expect(describePost(long, 2007)).toBe(long)
+})

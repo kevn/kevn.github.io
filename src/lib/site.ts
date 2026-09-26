@@ -4,5 +4,5 @@ export const site = {
   author: 'Kevin Hunt',
   email: 'hi@kev.in',
   description:
-    'Kevin Hunt — CTO of Deep Fathom, maker of small, useful apps at Rival Bear. Shipping software since dialup; writing about agents, engineering leadership and flying machines.',
+    'Kevin Hunt — CTO of Deep Fathom and maker of small, useful apps. Writing about AI agents, engineering leadership and flying machines.',
 } as const

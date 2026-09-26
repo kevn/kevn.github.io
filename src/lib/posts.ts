@@ -37,6 +37,11 @@ export const includeDrafts = (env: string | undefined = process.env.VERCEL_ENV) 
 const plain = (html: string) => html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
 const clip = (s: string, n = 160) => (s.length <= n ? s : s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…')
 
+/** Descriptions under 50 characters get a line of archive context (search snippets need more). */
+export function describePost(summary: string, year: number): string {
+  return summary.length >= 50 ? summary : `${summary} From Kevin Hunt's ${year} archive on kev.in.`
+}
+
 export function selectPosts(all: Post[], env?: string): Post[] {
   const allow = includeDrafts(env)
   return all.filter(p => allow || !p.draft).sort((a, b) => b.dateRaw.localeCompare(a.dateRaw))
@@ -87,7 +92,7 @@ function fromVelite(): Post[] {
       date: calendarDate(e.date),
       kind: 'archive',
       draft: false,
-      summary: clip(plain(e.excerpt)),
+      summary: describePost(clip(plain(e.excerpt)), calendarDate(e.date).y),
       tags: e.categories,
       format: 'html',
       body: e.html,

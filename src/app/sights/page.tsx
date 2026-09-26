@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/seo'
 import { JsonLd } from '@/components/json-ld'
 import { sightsGraph } from '@/lib/page-graphs'
 
-export const metadata: Metadata = pageMetadata({ title: 'Sights', description: 'Photographs by Kevin Hunt.', path: '/sights' })
+export const metadata: Metadata = pageMetadata({ title: 'Sights', description: 'Photographs by Kevin Hunt: a few favorites here, and the full collection at kevinhunt.com.', path: '/sights' })
 
 // Drop images into public/sights/ to populate the grid.
 function photos(): string[] {

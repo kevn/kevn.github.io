@@ -3,6 +3,11 @@ import { site } from './site'
 
 const FEED = { 'application/rss+xml': [{ url: '/feed.xml', title: site.name }] }
 
+const SUFFIX = ` · ${site.name}`
+
+/** Page title for the layout template; long titles skip the " · kev.in" suffix to stay within 70 characters. */
+export const pageTitle = (title: string): string | { absolute: string } => ((title + SUFFIX).length > 70 ? { absolute: title } : title)
+
 /** Where a page's Markdown twin lives. */
 export const markdownPath = (path: string) => (path === '/' ? '/index.md' : `${path}.md`)
 
@@ -23,7 +28,7 @@ export function pageMetadata({
   article?: { publishedTime: string; modifiedTime?: string; tags?: string[] }
 }): Metadata {
   return {
-    ...(title ? { title } : {}),
+    ...(title ? { title: pageTitle(title) } : {}),
     description,
     alternates: { canonical: path, types: { ...FEED, 'text/markdown': markdownPath(path) } },
     openGraph: {

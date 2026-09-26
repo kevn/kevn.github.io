@@ -12,3 +12,10 @@ it('supports article metadata for posts', () => {
   const m = pageMetadata({ title: 'T', description: 'd', path: '/writing/t', article: { publishedTime: '2007-05-17', modifiedTime: '2008-01-02', tags: ['rails'] } })
   expect(m.openGraph).toMatchObject({ type: 'article', publishedTime: '2007-05-17', modifiedTime: '2008-01-02', authors: ['https://kev.in/about'], tags: ['rails'], url: '/writing/t', siteName: 'kev.in' })
 })
+
+it('drops the site suffix only when a title would run past 70 characters', async () => {
+  const { pageTitle } = await import('./seo')
+  expect(pageTitle('Writing')).toBe('Writing')
+  const long = "Top Ten Most Frequently Things Overheard* at RailsConf '07 in Portland, OR"
+  expect(pageTitle(long)).toEqual({ absolute: long })
+})
