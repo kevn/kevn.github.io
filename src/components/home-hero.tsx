@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Wordmark } from './wordmark'
-import { Atom, Sparkle, Starburst } from './ornaments'
+import { Sparkle, Starburst } from './ornaments'
+import { AtomicClock } from './atomic-clock'
 
 export function HomeHero() {
   return (
@@ -10,8 +11,8 @@ export function HomeHero() {
       <Sparkle size={40} color="#ff4fd8" className="absolute right-[6%] top-[78%]" delay={1.1} />
       <Starburst size={70} color="#ff6b35" className="absolute left-[58%] top-[4%] hidden md:block" delay={0.5} />
       <Starburst size={54} color="#3ff0ff" className="absolute -bottom-6 left-[2%]" delay={1.3} />
-      <Atom size={340} className="absolute right-[5%] top-4 hidden lg:block" />
-      <Atom size={150} className="mb-4 ml-auto lg:hidden" />
+      <AtomicClock size={300} className="absolute right-[5%] top-2 hidden lg:block" />
+      <AtomicClock size={120} layout="row" className="mb-6 w-fit lg:hidden" />
       <p className="rise origin-left -rotate-6 font-script text-5xl text-atomic [text-shadow:0_0_22px_rgb(255_107_53/.6)] md:text-7xl">Greetings from</p>
       <h1 className="rise mt-3 [animation-delay:.1s]">
         <Wordmark size={210} label="kev.in" className="h-auto w-full max-w-[830px]" />

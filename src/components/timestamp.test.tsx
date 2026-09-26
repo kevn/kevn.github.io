@@ -51,3 +51,7 @@ it('pads lit text to the ghost width so short values stay inside the readout', a
   expect(lit).toBe('LIVE!!!!!!!!')
   expect(lit.length).toBe(ghost.length)
 })
+
+it('keeps colons as colons in ghost digits', () => {
+  expect(ghostOf('10:42:17')).toBe('~~:~~:~~')
+})

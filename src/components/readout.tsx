@@ -1,6 +1,6 @@
 /** DSEG glyph strings: '!' is a full-width blank, '~' lights every segment. */
 export const toSeg = (text: string) => text.replace(/ /g, '!')
-export const ghostOf = (text: string) => text.replace(/[^ ]/g, '~').replace(/ /g, '!')
+export const ghostOf = (text: string) => text.replace(/[^ :]/g, '~').replace(/ /g, '!')
 
 const TONE = { magenta: '#ff4fd8', green: '#8bff6b', amber: '#ffb000', cyan: '#3ff0ff' } as const
 export type Tone = keyof typeof TONE

@@ -37,23 +37,3 @@ export function Starburst({ size, color, className, style, delay = 0 }: Ornament
     </svg>
   )
 }
-
-/** Three neon orbits around a glowing nucleus. Decorative. */
-export function Atom({ size, className }: { size: number; className?: string }) {
-  const orbit = (color: string, rotation: number, cls: string, duration?: string) => (
-    <svg width={size} height={size} viewBox="0 0 340 340" className={cls} style={{ position: 'absolute', inset: 0, animationDuration: duration }}>
-      <ellipse cx={170} cy={170} rx={160} ry={52} fill="none" stroke={color} strokeWidth={2.5} transform={`rotate(${rotation} 170 170)`} style={glow(color)} />
-      {rotation === 0 && <circle cx={330} cy={170} r={9} fill={color} />}
-    </svg>
-  )
-  return (
-    <div aria-hidden="true" className={className} style={{ width: size, height: size }}>
-      <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-        {orbit('#3ff0ff', 0, 'orbit')}
-        {orbit('#ff4fd8', 60, 'orbit-rev')}
-        {orbit('#8bff6b', -60, 'orbit', '17s')}
-        <div style={{ position: 'absolute', left: '44%', top: '44%', width: '12%', height: '12%', borderRadius: '50%', background: '#ff6b35', boxShadow: '0 0 40px #ff6b35' }} />
-      </div>
-    </div>
-  )
-}
