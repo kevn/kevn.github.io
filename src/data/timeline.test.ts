@@ -1,7 +1,7 @@
 import { TIMELINE, yearText } from './timeline'
 
 it('has the confirmed years, oldest to newest', () => {
-  expect(TIMELINE.map(t => t.year)).toEqual([1994, 2007, 2010, 2024, 2025, 2026, 2026])
+  expect(TIMELINE.map(t => t.year)).toEqual([1994, 2007, 2009, 2024, 2025, 2026, 2026])
 })
 
 it("doesn't brag about owning the domain", () => {
@@ -13,7 +13,8 @@ it('shows dashes for years still to be confirmed', () => {
   expect(yearText(null)).toBe('----')
 })
 
-it("keeps the Yammer line to what's on the resume", () => {
-  const yammer = TIMELINE.find(t => t.year === 2010)!
-  expect(yammer.what).toBe('Joined Yammer as an early engineer.')
+it('reads like a story, not a resume: no job titles or headcounts', () => {
+  const yammer = TIMELINE.find(t => t.year === 2009)!
+  expect(yammer.what).toBe('Joined Yammer early, and stayed through the Microsoft acquisition until 2018.')
+  for (const t of TIMELINE) expect(t.what).not.toMatch(/manager|employee #|engineer #|\bDAU\b|\$\d/i)
 })
